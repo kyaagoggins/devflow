@@ -21,6 +21,18 @@ body {
     display: inline;
     margin: 0;
   }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  
   
   nav ul {
     list-style: none;
@@ -88,5 +100,155 @@ body {
     color: #fff;
     text-align: center;
     padding: 20px 0;
+  }
+
+  
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .main-nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+  
+  .main-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  
+  .auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .login-btn,
+  .signup-btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-btn {
+    background-color: #3498db;
+  }
+  
+  .login-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .signup-btn {
+    background-color: #2ecc71;
+  }
+  
+  .signup-btn:hover {
+    background-color: #27ae60;
+  }
+  
+  @media (max-width: 900px) {
+    .header-content {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+  
+    .logo {
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+  
+    .main-nav {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+  
+    .main-nav ul {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+  
+    .auth-buttons {
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+  }
+  .hero {
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .hero {
+    background-image: url("assets/devflow-main.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.50); 
+    z-index: 0;
+  }
+  
+  .hero .container {
+    position: relative;
+    z-index: 1; 
+  }
+  
+  .hero h2 {
+    font-size: 3rem; /* Make heading big */
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.5rem; /* Make paragraph a bit bigger */
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 30px;
   }
   
