@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<style>
+  .rectangle-div {
+    width: 30%;
+    position: relative;
+    border-radius: 33px;
+    background-color: #fff;
+    border: 3px solid #d2c6ce;
+    box-sizing: border-box;
+    height: 38px;
+  }
+
+  body {
+    line-height: normal;
+  }
+
+  .navBar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .login-page,
+  .dashboard-page,
+  .effort-tracking-page,
+  .requirements-tracking-page {
+    padding: 20px;
+  }
+
+  .userButton,
+  .settingsButton,
+  .downloadButton {
+    margin-top: 1% !important;
+    margin-bottom: 1% !important;
+  }
+
+  .userButton {
+    margin-left: 10px !important;
+    margin-right: 1% !important;
+  }
+
+  .settingsButton {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+
+  .downloadButton {
+    margin-left: 1% !important;
+    margin-right: 10px !important;
+  }
+
+  .title {
+    padding-right: 47%;
+  }
+
+  .btn {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 8px;
+    font-size: 16px;
+    color: #888;
+  }
+
+  .searchInput {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+    width: 50%;
+  }
+
+  .searchButton {
+    padding: 1% !important;
+  }
+
+  .navButton {
+    padding-right: 1%;
+  }
+</style>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+
+  <body>
+    <div id="sidebarContainer"></div>
+
+    <div class="navBar">
+      <button class="btn navButton"><i class="fa fa-bars"></i></button>
+      <h1 class="title">Dashboard</h1>
+      <div class="rectangle-div">
+        <button class="btn searchButton"><i class="fa fa-search"></i></button>
+        <input type="text" class="searchInput" placeholder="Search..." />
+      </div>
+      <button class="btn downloadButton" id="downloadButton">
+        <i class="fa fa-download"></i>
+      </button>
+      <button class="btn settingsButton" id="settingsButton">
+        <i class="fa fa-cog"></i>
+      </button>
+      <button class="btn userButton" id="userButton">
+        <i class="fa fa-user-circle"></i>
+      </button>
+    </div>
+
+    <div class="mainContent"></div>
+
+    <script>
+      $(document).ready(function () {
+        $.get("/navigation.html", function (html) {
+          $("#sidebarContainer").html(html); //show sidebar
+
+          $("body").css("margin-left", "300px");
+        });
+
+        //function to handle nav button functionality
+        $(".navButton").on("click", function () {
+          //if the sidebar is not shown yet, get the html
+          if ($("body").css("margin-left") === "0px") {
+            $.get("/navigation.html", function (html) {
+              $("#sidebarContainer").html(html); //show sidebar
+              $(".title").css("padding-right", "47%");
+              $("body").css("margin-left", "300px");
+            });
+          } else {
+            //the sidebar is open, clicking will remove it
+            $("body").css("margin-left", "0px");
+            $("#sidebarContainer").html("");
+            $(".title").css("padding-right", "50%");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
