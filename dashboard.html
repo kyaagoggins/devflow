@@ -83,6 +83,71 @@
   .navButton {
     padding-right: 1%;
   }
+
+  .mainContent {
+    height: 88%;
+    width: 82%;
+    margin-left: 40px;
+    margin-top: 20px;
+    position: absolute;
+    background: #efe6e6;
+    display: flex;
+  }
+
+  .teamContent {
+    width: 20%;
+    height: 91.5%;
+    background: red;
+    margin-top: 50px;
+    display: flex;
+    position: absolute;
+    margin-left: 20px;
+    border-radius: 45px;
+  }
+
+  .projectDesc {
+    border-radius: 45px;
+    display: flex;
+    position: absolute;
+    background: orange;
+    width: 31%;
+    height: 38%;
+    margin-left: 23%;
+    margin-top: 50px;
+  }
+
+  .deadlines {
+    display: flex;
+    position: absolute;
+    background: green;
+    width: 20%;
+    height: 38%;
+    border-radius: 45px;
+    margin-left: 56%;
+    margin-top: 50px;
+  }
+
+  .risks {
+    display: flex;
+    position: absolute;
+    background: lightblue;
+    width: 20%;
+    height: 38%;
+    border-radius: 45px;
+    margin-left: 78%;
+    margin-top: 50px;
+  }
+
+  .tasks {
+    display: flex;
+    position: absolute;
+    background: #9090eb;
+    margin-left: 23%;
+    width: 75%;
+    height: 50%;
+    border-radius: 45px;
+    margin-top: 25%;
+  }
 </style>
 <html lang="en">
   <head>
@@ -116,7 +181,13 @@
       </button>
     </div>
 
-    <div class="mainContent"></div>
+    <div class="mainContent">
+      <div class="teamContent"></div>
+      <div class="projectDesc"></div>
+      <div class="deadlines"></div>
+      <div class="risks"></div>
+      <div class="tasks"></div>
+    </div>
 
     <script>
       $(document).ready(function () {
@@ -134,12 +205,18 @@
               $("#sidebarContainer").html(html); //show sidebar
               $(".title").css("padding-right", "47%");
               $("body").css("margin-left", "300px");
+              $(".mainContent").css("margin-left", "40px");
+              $(".mainContent").css("width", "82%");
+              $(".tasks").css("margin-top", "25%");
             });
           } else {
             //the sidebar is open, clicking will remove it
             $("body").css("margin-left", "0px");
             $("#sidebarContainer").html("");
             $(".title").css("padding-right", "50%");
+            $(".mainContent").css("margin-left", "0px");
+            $(".mainContent").css("width", "100%");
+            $(".tasks").css("margin-top", "20.5%");
           }
         });
       });
