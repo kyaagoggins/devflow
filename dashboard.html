@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<style>
+  .rectangle-div {
+    width: 30%;
+    position: relative;
+    border-radius: 33px;
+    background-color: #fff;
+    border: 3px solid #d2c6ce;
+    box-sizing: border-box;
+    height: 38px;
+  }
+
+  body {
+    line-height: normal;
+  }
+
+  .navBar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .login-page,
+  .dashboard-page,
+  .effort-tracking-page,
+  .requirements-tracking-page {
+    padding: 20px;
+  }
+
+  .userButton,
+  .settingsButton,
+  .downloadButton {
+    margin-top: 1% !important;
+    margin-bottom: 1% !important;
+  }
+
+  .userButton {
+    margin-left: 10px !important;
+    margin-right: 1% !important;
+  }
+
+  .settingsButton {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+
+  .downloadButton {
+    margin-left: 1% !important;
+    margin-right: 10px !important;
+  }
+
+  .title {
+    font-family: Inter;
+    padding-right: 46%;
+  }
+
+  .btn {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 8px;
+    font-size: 16px;
+    color: #888;
+  }
+
+  .searchInput {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+    font-family: Inter;
+    width: 50%;
+  }
+
+  .searchButton {
+    padding: 1% !important;
+  }
+
+  .navButton {
+    padding-right: 1%;
+  }
+
+  .mainContent {
+    height: 88%;
+    width: 82%;
+    margin-left: 40px;
+    margin-top: 20px;
+    position: absolute;
+    background: #efe6e6;
+    display: flex;
+  }
+
+  /* team content div */
+  .teamContent {
+    width: 20%;
+    height: 91.5%;
+    background: white;
+    margin-top: 50px;
+    display: flex;
+    position: absolute;
+    margin-left: 20px;
+    border-radius: 45px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .projectDesc {
+    border-radius: 45px;
+    display: flex;
+    position: absolute;
+    background: white;
+    width: 31%;
+    height: 38%;
+    margin-left: 23%;
+    margin-top: 50px;
+  }
+
+  .deadlines {
+    display: flex;
+    position: absolute;
+    background: white;
+    width: 20%;
+    height: 38%;
+    border-radius: 45px;
+    margin-left: 56%;
+    margin-top: 50px;
+  }
+
+  .risks {
+    display: flex;
+    position: absolute;
+    background: white;
+    width: 20%;
+    height: 38%;
+    border-radius: 45px;
+    margin-left: 78%;
+    margin-top: 50px;
+  }
+
+  .tasks {
+    display: flex;
+    position: absolute;
+    background: white;
+    margin-left: 23%;
+    width: 75%;
+    height: 50%;
+    border-radius: 45px;
+    margin-top: 25%;
+  }
+
+  .teamTitle {
+    color: black;
+    font-size: 20px;
+    font-family: Inter;
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+
+  .teamMember {
+    color: black;
+    font-size: 20px;
+    font-family: Inter;
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+</style>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+
+  <body>
+    <div id="sidebarContainer"></div>
+
+    <div class="navBar">
+      <button class="btn navButton"><i class="fa fa-bars"></i></button>
+      <h1 class="title">Dashboard</h1>
+      <div class="rectangle-div">
+        <button class="btn searchButton"><i class="fa fa-search"></i></button>
+        <input type="text" class="searchInput" placeholder="Search..." />
+      </div>
+      <button class="btn downloadButton" id="downloadButton">
+        <i class="fa fa-download"></i>
+      </button>
+      <button
+        class="btn settingsButton"
+        id="settingsButton"
+        onclick="window.location.href='Structure.html'"
+      >
+        <i class="fa fa-cog"></i>
+      </button>
+      <button
+        class="btn userButton"
+        id="userButton"
+        onclick="window.location.href='input.html'"
+      >
+        <i class="fa fa-user-circle"></i>
+      </button>
+    </div>
+
+    <div class="mainContent">
+      <div class="teamContent">
+        <details>
+          <summary class="teamTitle" id="managerTitle">Project Manager</summary>
+          <p class="teamMember" id="managerName">Jane Doe</p>
+        </details>
+        <details>
+          <summary class="teamTitle">Project Manager</summary>
+          <p class="teamMember">Jane Doe</p>
+        </details>
+      </div>
+      <div class="projectDesc"></div>
+      <div class="deadlines"></div>
+      <div class="risks"></div>
+      <div class="tasks"></div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $.get("/navigation.html", function (html) {
+          $("#sidebarContainer").html(html); //show sidebar
+
+          $("body").css("margin-left", "300px");
+        });
+
+        //function to handle nav button functionality
+        $(".navButton").on("click", function () {
+          //if the sidebar is not shown yet, get the html
+          if ($("body").css("margin-left") === "0px") {
+            $.get("/navigation.html", function (html) {
+              $("#sidebarContainer").html(html); //show sidebar
+              $(".title").css("padding-right", "47%");
+              $("body").css("margin-left", "300px");
+              $(".mainContent").css("margin-left", "40px");
+              $(".mainContent").css("width", "82%");
+              $(".tasks").css("margin-top", "25%");
+            });
+          } else {
+            //the sidebar is open, clicking will remove it
+            $("body").css("margin-left", "0px");
+            $("#sidebarContainer").html("");
+            $(".title").css("padding-right", "50%");
+            $(".mainContent").css("margin-left", "0px");
+            $(".mainContent").css("width", "100%");
+            $(".tasks").css("margin-top", "20.5%");
+          }
+        });
+      });
+
+      function getData() {
+        const data = JSON.parse(localStorage.getItem("projectInfo"));
+        console.log(data);
+
+        displayTeams(data.team);
+      }
+
+      function displayTeams(teamData) {
+        const container = document.getElementById("teamContent");
+
+        teamData.forEach((team) => {});
+      }
+    </script>
+  </body>
+</html>
