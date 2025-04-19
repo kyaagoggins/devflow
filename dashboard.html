@@ -54,7 +54,8 @@
   }
 
   .title {
-    padding-right: 47%;
+    font-family: Inter;
+    padding-right: 46%;
   }
 
   .btn {
@@ -73,6 +74,7 @@
     outline: none;
     flex: 1;
     font-size: 14px;
+    font-family: Inter;
     width: 50%;
   }
 
@@ -94,6 +96,7 @@
     display: flex;
   }
 
+  /* team content div */
   .teamContent {
     width: 20%;
     height: 91.5%;
@@ -103,6 +106,9 @@
     position: absolute;
     margin-left: 20px;
     border-radius: 45px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .projectDesc {
@@ -148,6 +154,22 @@
     border-radius: 45px;
     margin-top: 25%;
   }
+
+  .teamTitle {
+    color: black;
+    font-size: 20px;
+    font-family: Inter;
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+
+  .teamMember {
+    color: black;
+    font-size: 20px;
+    font-family: Inter;
+    font-weight: 400;
+    word-wrap: break-word;
+  }
 </style>
 <html lang="en">
   <head>
@@ -156,6 +178,10 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
     />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
@@ -173,16 +199,33 @@
       <button class="btn downloadButton" id="downloadButton">
         <i class="fa fa-download"></i>
       </button>
-      <button class="btn settingsButton" id="settingsButton">
+      <button
+        class="btn settingsButton"
+        id="settingsButton"
+        onclick="window.location.href='Structure.html'"
+      >
         <i class="fa fa-cog"></i>
       </button>
-      <button class="btn userButton" id="userButton">
+      <button
+        class="btn userButton"
+        id="userButton"
+        onclick="window.location.href='input.html'"
+      >
         <i class="fa fa-user-circle"></i>
       </button>
     </div>
 
     <div class="mainContent">
-      <div class="teamContent"></div>
+      <div class="teamContent">
+        <details>
+          <summary class="teamTitle" id="managerTitle">Project Manager</summary>
+          <p class="teamMember" id="managerName">Jane Doe</p>
+        </details>
+        <details>
+          <summary class="teamTitle">Project Manager</summary>
+          <p class="teamMember">Jane Doe</p>
+        </details>
+      </div>
       <div class="projectDesc"></div>
       <div class="deadlines"></div>
       <div class="risks"></div>
@@ -220,6 +263,19 @@
           }
         });
       });
+
+      function getData() {
+        const data = JSON.parse(localStorage.getItem("projectInfo"));
+        console.log(data);
+
+        displayTeams(data.team);
+      }
+
+      function displayTeams(teamData) {
+        const container = document.getElementById("teamContent");
+
+        teamData.forEach((team) => {});
+      }
     </script>
   </body>
 </html>
