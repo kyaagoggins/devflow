@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Input Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Project Input Form</h1>
+    <form id="projectForm">
+        <!-- Dashboard Inputs -->
+        <h2>Dashboard Inputs</h2>
+        <label for="projectDescription">Project Description:</label>
+        <textarea id="projectDescription" name="projectDescription" required></textarea><br>
+
+        <label for="projectManager">Project Manager's Name:</label>
+        <input type="text" id="projectManager" name="projectManager" required><br>
+
+        <label for="teamMembers">Team Members (comma-separated):</label>
+        <input type="text" id="teamMembers" name="teamMembers" required><br>
+
+        <label for="risks">Risks:</label>
+        <textarea id="risks" name="risks"></textarea><br>
+
+        <label for="tasks">Tasks:</label>
+        <textarea id="tasks" name="tasks"></textarea><br>
+
+        <!-- Requirements Tracking Table -->
+        <h2>Requirements Tracking</h2>
+        <label for="requirements">Functional/Non-Functional Requirements:</label>
+        <textarea id="requirements" name="requirements" required></textarea><br>
+
+        <label for="priority">Priority Level:</label>
+        <select id="priority" name="priority" required>
+            <option value="critical">Critical</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+        </select><br>
+
+        <!-- Effort Monitoring and Tracking -->
+        <h2>Effort Monitoring</h2>
+        <label for="progress">Progress (in person-hours):</label>
+        <input type="number" id="progress" name="progress" required><br>
+
+        <label for="phase">Phase:</label>
+        <select id="phase" name="phase" required>
+            <option value="requirements">Requirements Analysis</option>
+            <option value="designing">Designing</option>
+            <option value="coding">Coding</option>
+            <option value="testing">Testing</option>
+        </select><br>
+
+        <!-- File Upload -->
+        <h2>File Upload</h2>
+        <label for="fileUpload">Upload File:</label>
+        <input type="file" id="fileUpload" name="fileUpload"><br>
+
+        <button type="submit">Submit</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
