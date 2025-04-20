@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Pacifico&display=swap');
+
+:root {
+  --sidebar-color: #62929e;
+  --bg-color: #f4f4f4;
+  --card-bg: #fff;
+  --main-bg: #f8f3ef;
+  --high-priority: #dc3545;
+  --medium-priority: #ffc107;
+  --low-priority: #28a745;
+  --text-color: #222;
+  --border-radius: 16px;
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: var(--bg-color);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 213px; /* sidebar width */
+  background: var(--main-bg);
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.header-title {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.search-container {
+  flex: 1;
+  max-width: 600px;
+  margin: 0 24px;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+}
+
+.header-icons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.header-icon {
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+}
+
+.user-profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ddd;
+}
+
+.card {
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Priority badges */
+.priority-high {
+  background: var(--high-priority);
+  color: #fff;
+  padding: 4px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.priority-medium {
+  background: var(--medium-priority);
+  color: #222;
+  padding: 4px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.priority-low {
+  background: var(--low-priority);
+  color: #fff;
+  padding: 4px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Form elements */
+label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 1em;
+  background: #fafbfc;
+}
+
+button {
+  background: var(--sidebar-color);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  margin-top: 12px;
+  transition: background 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 24px;
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+}
+
+th {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+tr {
+  border-bottom: 1px solid #eee;
+}
+
+.content-wrapper {
+  padding: 24px;
+}
+
+/* Colors for effort monitoring */
+.over-budget {
+  background: var(--high-priority);
+  color: white;
+  text-align: center;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.near-budget {
+  background: var(--medium-priority);
+  color: var(--text-color);
+  text-align: center;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.under-budget {
+  background: var(--low-priority);
+  color: white;
+  text-align: center;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+/* Dashboard specific */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto auto;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.team-section, .metrics-section, .deadlines-section, .risks-section {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: var(--card-shadow);
+}
+
+.modify-button {
+  background: #dbc1bc;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-right: 8px;
+}

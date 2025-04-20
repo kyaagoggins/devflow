@@ -3,31 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <title>Effort Monitoring & Tracking</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="effort.css">
 </head>
 <body>
-  <h1>Effort Monitoring & Tracking</h1>
-  <form id="effortForm">
-    <label>Date:
-      <input type="date" name="date" required>
-    </label>
-    <label>Phase:
-      <select name="phase" required>
-        <option value="requirements">Requirements Analysis</option>
-        <option value="design">Design</option>
-        <option value="coding">Coding</option>
-        <option value="testing">Testing</option>
-      </select>
-    </label>
-    <label>Person-Hours:
-      <input type="number" name="hours" min="0" required>
-    </label>
-    <button type="submit">Add Entry</button>
-  </form>
+  <div class="container">
+    <div class="sidebar">
+      <div class="titleDev">Devflow</div>
+      <div style="padding-bottom: 40%"></div>
+      <div id="projectText" class="projectText">Project Name</div>
+      <ul>
+        <li class="navText">
+          <i class="fa fa-star"></i>
+          <a href="dashboard.html">Dashboard</a>
+        </li>
+        <li class="navText">
+          <i class="fa fa-star"></i>
+          <a href="requirements.html">Requirements Tracking</a>
+        </li>
+        <li class="navText">
+          <i class="fa fa-star"></i>
+          <a href="effort.html">Effort Monitoring</a>
+        </li>
+      </ul>
+    </div>
 
-  <h2>Effort Progress</h2>
-  <div id="progressDashboard"></div>
+    <div class="main-content">
+      <header class="header">
+        <h1 class="header-title">Effort Monitoring</h1>
+        <div class="search-container">
+          <input type="text" class="search-bar" placeholder="Search...">
+        </div>
+        <div class="header-icons">
+          <i class="fa fa-print header-icon"></i>
+          <i class="fa fa-share-alt header-icon"></i>
+          <i class="fa fa-cog header-icon"></i>
+          <div class="user-profile"></div>
+        </div>
+      </header>
+      
+      <div class="content-wrapper">
+        <div class="card entry-card">
+          <h2>Add Effort Entry</h2>
+          <form id="effortForm">
+            <label>Date:
+              <input type="date" name="date" required>
+            </label>
+            <label>Phase:
+              <select name="phase" required>
+                <option value="requirements">Requirements Analysis</option>
+                <option value="design">Design</option>
+                <option value="coding">Coding</option>
+                <option value="testing">Testing</option>
+              </select>
+            </label>
+            <label>Person-Hours:
+              <input type="number" name="hours" min="0" required>
+            </label>
+            <button type="submit">Add Entry</button>
+          </form>
+        </div>
 
-  <script src="effort.js"></script>
-</body>
-</html>
+        <div class="card">
+          <h2>Daily Task Progress</h2>
+          <table class="effort-table">
+            <thead>
+              <tr>
+                <th>Assigned Task</th>
+                <th>Team</th>
+                <th>Progress</th>
+                <th>Budgeted</th>
+                <th>Actual</th>
+              </tr>
+            </thead>
+            <tbody id="dailyTasksTable">
+              <!-- will be populated by js -->
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="card">
+          <h2>Weekly Task Progress</h2>
+          <table class="effort-table">
+            <thead>
+              <tr>
+                <th>Assigned Task</th>
+                <th>Team</th>
+                <th>Budgeted</th>
+                <th>Actual</th>
+              </tr>
+            </thead>
+            <tbody id="weeklyTasksTable">
+              <!-- will be populated by js -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>Overall Effort Progress</h2>
+          <div
+
