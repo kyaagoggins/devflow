@@ -7,9 +7,62 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="effort.css">
+  <style>
+    .sidebar {
+      position: fixed;
+      width: 213px;
+      height: 100%;
+      background-color: #62929e;
+      color: black;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .sidebar li a {
+      text-decoration: none;
+      display: block;
+      padding: 8px 0;
+    }
+    .titleDev {
+      color: black;
+      font-size: 32px;
+      font-family: "Pacifico", cursive;
+      font-weight: 400;
+      word-wrap: break-word;
+    }
+    .projectText {
+      color: black;
+      font-size: 32px;
+      font-family: Inter, sans-serif;
+      font-weight: 400;
+      word-wrap: break-word;
+      padding-bottom: 5%;
+    }
+    .navText {
+      font-size: 20px;
+      font-family: Inter, sans-serif;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+    }
+    .navText a {
+      color: black;
+      text-decoration: none;
+      font-weight: normal;
+    }
+    .navText i {
+      color: white;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
+    <!-- sidebar -->
     <div class="sidebar">
       <div class="titleDev">Devflow</div>
       <div style="padding-bottom: 40%"></div>
@@ -29,7 +82,7 @@
         </li>
       </ul>
     </div>
-
+    <!-- main Content -->
     <div class="main-content">
       <header class="header">
         <h1 class="header-title">Effort Monitoring</h1>
@@ -43,7 +96,6 @@
           <div class="user-profile"></div>
         </div>
       </header>
-      
       <div class="content-wrapper">
         <div class="card entry-card">
           <h2>Add Effort Entry</h2>
@@ -79,7 +131,7 @@
               </tr>
             </thead>
             <tbody id="dailyTasksTable">
-              <!-- will be populated by js -->
+              <!-- be populated by js -->
             </tbody>
           </table>
         </div>
@@ -96,12 +148,19 @@
               </tr>
             </thead>
             <tbody id="weeklyTasksTable">
-              <!-- will be populated by js -->
+              <!-- be populated by js -->
             </tbody>
           </table>
         </div>
 
         <div class="card">
           <h2>Overall Effort Progress</h2>
-          <div
+          <div id="progressDashboard"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="effort.js"></script>
+</body>
+</html>
 
