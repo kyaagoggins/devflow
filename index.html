@@ -2,122 +2,540 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Devflow</title>
+
+    <!--Swap our for actual link-->
+    <link rel="canonical" href="https://www.devflow.com/" />
+
+    <meta
+      name="description"
+      content="Simplify your software development process with DevFlow — a collaborative project management tool built for developers, students, and project managers."
+    />
+    <meta name="keywords" content="" />
+
+    <!--Social Media Display-->
+    <meta
+      property="og:title"
+      content="DevFlow | Project Management Simplified"
+    />
+    <meta
+      property="og:description"
+      content="Simplify your software development process with DevFlow — a collaborative project management tool built for developers, students, and project managers."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.devflow.com/" />
+    <meta property="og:image" content="/assets/images/devflow-logo.png" />
+    <meta
+      property="og:image:secure_url"
+      content="/assets/images/devflow-logo.png"
+    />
+
+    <!-- Preload -->
+    <link rel="preload" as="image" href="/assets/logo-light.png" />
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/assets/fonts/roboto-v29-latin-regular.woff2"
+      crossorigin
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Pacifico&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/assets/fonts/roboto-v29-latin-700.woff2"
+      crossorigin
     />
-    <link rel="stylesheet" href="main.css" />
-    <style>
-      /* Basic sidebar styling*/
-      .sidebar {
-        position: fixed;
-        width: 213px;
-        height: 100%;
-        background-color: #62929e;
-        color: black;
-        padding: 20px;
-        overflow-y: auto;
-      }
 
-      .sidebar ul {
-        list-style: none;
-        padding: 0;
-      }
+    <link rel="stylesheet" href="/css/root.css" />
+    <link rel="stylesheet" href="/css/dark.css" />
 
-      .sidebar li a {
-        text-decoration: none;
-        display: block;
-        padding: 8px 0;
-      }
+    <link rel="preload" as="image" href="/assets/images/devflow-logo.png" />
 
-      .titleDev {
-        color: black;
-        font-size: 32px;
-        font-family: "Pacifico", cursive;
-        font-weight: 400;
-        word-wrap: break-word;
-      }
+    <!-- Loading in page specific CSS sheets from css block -->
+    <link rel="stylesheet" href="/css/critical.css" />
+    <link rel="stylesheet" href="/css/local.css" />
 
-      .projectText {
-        color: black;
-        font-size: 32px;
-        font-family: Inter, sans-serif;
-        font-weight: 400;
-        word-wrap: break-word;
-        padding-bottom: 5%;
-      }
+    <link rel="icon" type="image/png" href="/assets/images/devflow-logo.png" />
 
-      .navText {
-        font-size: 20px;
-        font-family: Inter, sans-serif;
-        font-weight: 400;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 0;
-      }
-
-      .navText a {
-        color: black;
-        text-decoration: none;
-        font-weight: normal;
-      }
-
-      .navText i {
-        color: white;
-      }
-    </style>
+    <!-- For home page, use full title, including location for SEO. Other pages should just include the page name -->
+    <title>
+      DevFlow | Project Management Simplified | Collaborative Software
+      Management | Marietta, GA
+    </title>
   </head>
   <body>
-    <div class="container">
-      <div class="sidebar">
-        <div class="titleDev">Devflow</div>
-        <div style="padding-bottom: 40%"></div>
-        <div id="projectText" class="projectText">Project Name</div>
-        <ul>
-          <li class="navText">
-            <i class="fa fa-star"></i>
-            <a href="dashboard.html">Dashboard</a>
-          </li>
-          <li class="navText">
-            <i class="fa fa-star"></i>
-            <a href="requirements.html">Requirements Tracking</a>
-          </li>
-          <li class="navText">
-            <i class="fa fa-star"></i>
-            <a href="effort.html">Effort Monitoring</a>
-          </li>
-        </ul>
+    <!--Screen reader skip main nav-->
+    <a class="skip" aria-label="skip to main content" href="#main"
+      >Click To Skip To Main Content</a
+    >
+
+    <!-- ============================================ -->
+    <!--                 Navigation                   -->
+    <!-- ============================================ -->
+
+    <div id="navigation">
+      <div aria-hidden="true" class="background-color-div"></div>
+      <div class="container">
+        <a class="logo" aria-label="click to go to home page" href="/">
+          <img
+            class="light"
+            aria-hidden="true"
+            src="/assets/images/devflow-full-light1.png"
+            decoding="async"
+            alt="logo"
+            width="221"
+            height="66"
+          />
+
+          <!--Dark Colored Logo-->
+          <img
+            class="dark"
+            aria-hidden="true"
+            src="/assets/images/devflow-full-light1.png"
+            decoding="async"
+            loading="lazy"
+            alt="logo"
+            width="221"
+            height="66"
+          />
+        </a>
+
+        <!--Mobile Nav toggle-->
+        <button
+          class="hamburger-menu"
+          aria-expanded="false"
+          aria-controls="navbar-menu"
+        >
+          <span aria-hidden="true"></span>
+        </button>
+
+        <!--Main Nav-->
+        <nav id="navbar-menu" aria-label="main navigation">
+          <ul>
+            <li>
+              <a href="/signin/" class=""> Sign In </a>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <div class="main-content">
-        <header class="header">
-          <h1 class="header-title">Dashboard</h1>
-          <div class="search-container">
-            <input type="text" class="search-bar" placeholder="Search..." />
-          </div>
-          <div class="header-icons">
-            <i class="fa fa-print header-icon"></i>
-            <i class="fa fa-share-alt header-icon"></i>
-            <i class="fa fa-cog header-icon"></i>
-            <div class="user-profile"></div>
-          </div>
-        </header>
-        <div class="content-wrapper">
-          <div class="card">
-            <h1>Welcome to Devflow!</h1>
-            <p>
-              This is the dashboard where you can monitor your project's
-              progress and manage tasks.
+    </div>
+    <main id="main">
+      <!-- Enter html code below -->
+
+      <!-- ============================================ -->
+      <!--                    Hero                      -->
+      <!-- ============================================ -->
+
+      <section id="hero">
+        <div class="cs-container">
+          <div class="cs-flex-group">
+            <span class="cs-topper">devflow project hub</span>
+            <h1 class="cs-title">
+              Build Better Software with Smarter Collaboration
+            </h1>
+            <p class="cs-text">
+              Plan projects, track progress, and empower your team with
+              real-time tools designed for developers, project managers, and
+              students alike.
             </p>
+            <!-- <a href="" class="cs-button-transparent">
+        <img
+          class="cs-img"
+          loading="lazy"
+          decoding="async"
+          src="https://csimg.nyc3.digitaloceanspaces.com/Hero/play.svg"
+          alt="play icon"
+          width="17"
+          height="17"
+/>
+        Learn More
+      </a> -->
+          </div>
+        </div>
+
+        <!-- Background Image -->
+        <picture class="cs-picture">
+          <source
+            type="image/webp"
+            srcset="
+              /images/devflow-main-200w.webp 200w,
+              /images/devflow-main-400w.webp 400w,
+              /images/devflow-main-850w.webp 850w
+            "
+            sizes="(max-width: 400px) 400px, (max-width: 850px) 850px, 1920px"
+          />
+          <source
+            type="image/jpeg"
+            srcset="
+              /images/devflow-main-200w.jpeg 200w,
+              /images/devflow-main-400w.jpeg 400w,
+              /images/devflow-main-850w.jpeg 850w
+            "
+            sizes="(max-width: 400px) 400px, (max-width: 850px) 850px, 1920px"
+          />
+          <img
+            src="/images/devflow-main-200w.jpeg"
+            width="850"
+            height="446"
+            alt="mountains"
+            loading="eager"
+            decoding="async"
+          />
+        </picture>
+      </section>
+
+      <!-- ============================================ -->
+      <!--                  Services                    -->
+      <!-- ============================================ -->
+
+      <section id="services" class="services">
+        <div class="card">
+          <picture>
+            <img
+              aria-hidden="true"
+              decoding="async"
+              src="/assets/images/dashboard1.png"
+              alt="appliance"
+              width="48"
+              height="48"
+            />
+          </picture>
+          <h2>Project Dashboard</h2>
+          <p>
+            Get real-time oversight of project progress, task assignments, and
+            risk status from one simple view.
+          </p>
+        </div>
+        <div class="card">
+          <picture>
+            <img
+              aria-hidden="true"
+              decoding="async"
+              src="/assets/images/tracking.png"
+              alt="appliance"
+              width="48"
+              height="48"
+            />
+          </picture>
+          <h2>Requirements Tracker</h2>
+          <p>
+            Input, organize, and prioritize functional and non-functional
+            requirements with color-coded clarity.
+          </p>
+        </div>
+        <div class="card">
+          <picture>
+            <img
+              aria-hidden="true"
+              decoding="async"
+              src="/assets/images/effort.png"
+              alt="appliance"
+              width="48"
+              height="48"
+            />
+          </picture>
+          <h2>Effort Monitoring</h2>
+          <p>
+            Log time spent on coding, testing, and management tasks to evaluate
+            team productivity.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!--            Extra Content To Rank             -->
+      <!-- ============================================ -->
+
+      <section id="sbs-r">
+        <div class="cs-container">
+          <!-- Left Image Section -->
+          <div class="cs-left">
+            <picture class="cs-picture cs-picture1">
+              <source
+                type="image/webp"
+                srcset="
+                  /images/projman1-200w.webp   200w,
+                  /images/projman1-400w.webp   400w,
+                  /images/projman1-850w.webp   850w,
+                  /images/projman1-1920w.webp 1920w
+                "
+                sizes="(max-width: 600px) 400px, 850px"
+              />
+              <source
+                type="image/jpeg"
+                srcset="
+                  /images/projman1-200w.jpeg   200w,
+                  /images/projman1-400w.jpeg   400w,
+                  /images/projman1-850w.jpeg   850w,
+                  /images/projman1-1920w.jpeg 1920w
+                "
+                sizes="(max-width: 600px) 400px, 850px"
+              />
+              <img
+                src="/images/projman1-200w.jpeg"
+                width="1920"
+                height="1025"
+                alt="DevFlow dashboard"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+            <picture class="cs-picture cs-picture2">
+              <source
+                type="image/webp"
+                srcset="
+                  /images/projman2-200w.webp   200w,
+                  /images/projman2-400w.webp   400w,
+                  /images/projman2-850w.webp   850w,
+                  /images/projman2-1920w.webp 1920w
+                "
+                sizes="(max-width: 600px) 400px, 850px"
+              />
+              <source
+                type="image/jpeg"
+                srcset="
+                  /images/projman2-200w.jpeg   200w,
+                  /images/projman2-400w.jpeg   400w,
+                  /images/projman2-850w.jpeg   850w,
+                  /images/projman2-1920w.jpeg 1920w
+                "
+                sizes="(max-width: 600px) 400px, 850px"
+              />
+              <img
+                src="/images/projman2-200w.jpeg"
+                width="1920"
+                height="1279"
+                alt="DevFlow dashboard"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </div>
+          <!-- Right Content Section-->
+          <div class="cs-right">
+            <span class="cs-topper">DevFlow</span>
+            <h2 class="cs-title">Real-Time Progress Monitoring</h2>
+            <p class="cs-text">
+              DevFlow helps development teams stay aligned and productive by
+              offering real-time visibility into project status, team effort,
+              and requirement tracking. Whether you're managing class
+              assignments or enterprise software development, DevFlow ensures
+              that nothing slips through the cracks.
+            </p>
+            <p class="cs-text">
+              From dashboards to detailed effort logs, our tools support
+              transparent project execution, helping teams meet deadlines,
+              reduce miscommunication, and stay organized at every stage. Need
+              to track work, deadlines, or team contributions? DevFlow makes it
+              easy — all in one place, so your entire team is always on the same
+              page.
+            </p>
+            <p class="cs-text">
+              Need to track work, deadlines, or team contributions? DevFlow
+              makes it easy — all in one place, so your entire team is always on
+              the same page.
+            </p>
+            <!-- <a href="" class="button-solid">Learn More About Thing</a> -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!--                   Reviews                    -->
+      <!-- ============================================ -->
+
+      <section id="reviews">
+        <div class="cs-container">
+          <span class="cs-topper">Our Reviews</span>
+          <h2 class="cs-title">Words From Our Customers</h2>
+          <p class="cs-text">
+            DevFlow is making project management easier, faster, and more
+            collaborative — whether you're working on a class assignment or
+            shipping code at scale. Here's what our users are saying:
+          </p>
+          <ul class="cs-card-group">
+            <!-- Review 1 -->
+            <li class="cs-item">
+              <img
+                class="cs-item-img"
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/profile5.png"
+                alt="profile picture"
+                width="80"
+                height="80"
+              />
+              <p class="cs-item-p">
+                “We used DevFlow to organize our capstone project and it was a
+                game-changer. Having one place for tasks, requirements, and
+                weekly check-ins made collaboration so much easier.”
+              </p>
+              <span class="cs-reviewer">
+                Jon Doe
+                <span class="cs-desc">Senior CS Student, KSU</span>
+              </span>
+              <img
+                class="cs-item-stars"
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/stars-yellow.svg"
+                alt="stars"
+                width="96"
+                height="16"
+              />
+            </li>
+            <!-- Review 2 -->
+            <li class="cs-item">
+              <img
+                class="cs-item-img"
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/profile-4.png"
+                alt="profile picture"
+                width="80"
+                height="80"
+              />
+              <p class="cs-item-p">
+                “DevFlow has completely changed how I manage my development
+                team. The dashboard keeps everyone aligned, and the effort
+                tracking helps us stay on schedule without micromanaging.”
+              </p>
+              <span class="cs-reviewer">
+                Jane Doe
+                <span class="cs-desc">Project Manager, VelocitySoft</span>
+              </span>
+              <img
+                class="cs-item-stars"
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/stars-yellow.svg"
+                alt="stars"
+                width="96"
+                height="16"
+              />
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- ============================================ -->
+      <!--             Final Call to Action             -->
+      <!-- ============================================ -->
+
+      <section id="cta">
+        <div class="container">
+          <h2 class="title">
+            Get It Done <br />
+            With DevFlow Today
+          </h2>
+          <p>
+            No more messy spreadsheets, lost requirements, or misaligned teams.
+            DevFlow gives you the clarity and control you need to plan smarter,
+            collaborate better, and deliver projects with confidence.
+            <br />
+            <br />
+            Ready to streamline your workflow? Let’s build something great —
+            together.
+          </p>
+          <a href="/contact" class="button-solid">Get an Estimate Now</a>
+        </div>
+        <picture class="">
+          <source
+            type="image/webp"
+            srcset="
+              /images/pplworking-200w.webp 200w,
+              /images/pplworking-400w.webp 400w,
+              /images/pplworking-850w.webp 850w
+            "
+            sizes="(max-width: 400px) 400px, (max-width: 850px) 850px, 1920px"
+          />
+          <source
+            type="image/jpeg"
+            srcset="
+              /images/pplworking-200w.jpeg 200w,
+              /images/pplworking-400w.jpeg 400w,
+              /images/pplworking-850w.jpeg 850w
+            "
+            sizes="(max-width: 400px) 400px, (max-width: 850px) 850px, 1920px"
+          />
+          <img
+            src="/images/pplworking-200w.jpeg"
+            width="850"
+            height="385"
+            alt="Man working"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+      </section>
+
+      <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+      <script>
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on("init", (user) => {
+            if (!user) {
+              window.netlifyIdentity.on("login", () => {
+                document.location.href = "/admin/";
+              });
+            }
+          });
+        }
+      </script>
+    </main>
+    <!-- ============================================ -->
+    <!--                   Footer                     -->
+    <!-- ============================================ -->
+
+    <footer id="footer">
+      <div class="container">
+        <div class="right-section">
+          <div class="lists">
+            <ul>
+              <li>
+                <h2>Contact</h2>
+              </li>
+              <li>
+                <a href="/contact"
+                  >1100 South Marietta Pkwy SE<br />Marietta, GA 30060</a
+                >
+              </li>
+              <li>
+                <a href="tel:555-779-4407">T: (555) 779-4407</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </div>
+
+      <div class="credit">
+        <span>Designed and Hand Coded by</span>
+        <a href="" target="_blank" rel="noopener">DevFlow</a>
+        <span class="copyright"> Copyright 2025 - Present</span>
+      </div>
+    </footer>
+
+    <script defer src="/assets/js/nav.js"></script>
+    <script defer src="/assets/js/dark.js"></script>
+
+    <!--
+        This script adds a class to the body after scrolling 100px
+        and we used these body.scroll styles to create some on scroll 
+        animations with the navbar
+    -->
+    <script defer>
+      document.addEventListener("scroll", (e) => {
+        const scroll = document.documentElement.scrollTop;
+        if (scroll >= 100) {
+          document.querySelector("body").classList.add("scroll");
+        } else {
+          document.querySelector("body").classList.remove("scroll");
+        }
+      });
+    </script>
   </body>
 </html>
