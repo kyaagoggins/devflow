@@ -1,6 +1,6 @@
 //navigation sidebar display functionality
 $(document).ready(function () {
-  $.get("/navigation.html", function (html) {
+  $.get("../navigation/navigation.html", function (html) {
     $("#sidebarContainer").html(html); //show sidebar
 
     $(".main-content").css("margin-left", "300px");
