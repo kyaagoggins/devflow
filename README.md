@@ -1,6 +1,6 @@
 # DevFlow
 
-## Livia - Homepage + Login + Contact Pages
+## Livia John - Homepage + Login + Contact Pages
 
 ---
 
