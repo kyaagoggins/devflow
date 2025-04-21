@@ -13,7 +13,7 @@
   <div class="sidebar">
     <div class="titleDev">Devflow</div>
     <div style="padding-bottom: 40%"></div>
-    <div id="projectText" class="projectText">Project Name</div>
+    <div id="projectText" class="projectText"></div>
     <ul>
       <li class="navText">
         <i class="fa fa-star"></i>
@@ -106,3 +106,17 @@
     color: white;
   }
 </style>
+
+<script>
+  //load info on load of page
+  window.onload = function () {
+    getProjectTitle();
+  };
+
+  function getProjectTitle() {
+    const data = JSON.parse(localStorage.getItem("projectInfo"));
+
+    const container = document.getElementById("projectText");
+    container.textContent = data.title ? data.title : "Untitled Project";
+  }
+</script>

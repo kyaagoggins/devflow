@@ -1,0 +1,260 @@
+/* styling for header */
+.rectangle-div {
+  width: 30%;
+  position: relative;
+  border-radius: 33px;
+  background-color: #fff;
+  border: 3px solid #d2c6ce;
+  box-sizing: border-box;
+  height: 38px;
+}
+
+body {
+  line-height: normal;
+}
+
+/* styling for left side nav bar */
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.hidden {
+  display: none;
+}
+
+.login-page,
+.dashboard-page,
+.effort-tracking-page,
+.requirements-tracking-page {
+  padding: 20px;
+}
+
+.userButton,
+.settingsButton,
+.downloadButton {
+  margin-top: 1% !important;
+  margin-bottom: 1% !important;
+}
+
+.userButton {
+  margin-left: 10px !important;
+  margin-right: 1% !important;
+}
+
+.settingsButton {
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
+.downloadButton {
+  margin-left: 1% !important;
+  margin-right: 10px !important;
+}
+
+/* dashboard header text */
+.title {
+  font-family: Inter;
+  padding-right: 46%;
+}
+
+/* general button styling  */
+.btn {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 8px;
+  font-size: 16px;
+  color: #888;
+}
+
+/* search bar styling */
+.searchInput {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 14px;
+  font-family: Inter;
+  width: 50%;
+}
+
+.searchButton {
+  padding: 1% !important;
+}
+
+.navButton {
+  padding-right: 1%;
+}
+
+/* dashboard main content */
+.mainContent {
+  height: 88%;
+  width: 82%;
+  margin-left: 40px;
+  margin-top: 20px;
+  position: absolute;
+  background: #efe6e6;
+  display: flex;
+}
+
+/* team content div */
+.teamContent {
+  width: 20%;
+  height: 91.5%;
+  background: white;
+  margin-top: 50px;
+  display: flex;
+  position: absolute;
+  margin-left: 20px;
+  border-radius: 45px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.projectDesc {
+  border-radius: 45px;
+  display: flex;
+  position: absolute;
+  background: white;
+  width: 31%;
+  height: 38%;
+  margin-left: 23%;
+  margin-top: 50px;
+}
+
+.deadlines {
+  display: flex;
+  position: absolute;
+  background: white;
+  width: 20%;
+  height: 38%;
+  border-radius: 45px;
+  margin-left: 56%;
+  margin-top: 50px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.risks {
+  display: flex;
+  position: absolute;
+  background: white;
+  width: 20%;
+  height: 38%;
+  border-radius: 45px;
+  margin-left: 78%;
+  margin-top: 50px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+}
+
+.tasks {
+  display: flex;
+  position: absolute;
+  background: white;
+  margin-left: 23%;
+  width: 75%;
+  height: 50%;
+  border-radius: 45px;
+  margin-top: 25%;
+  font-family: Inter, sans-serif;
+}
+
+/* teams besides the proj manager div */
+#teams,
+#deadlineContent,
+.riskContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  overflow-y: auto;
+}
+
+/* styling for team dropdown */
+details {
+  padding-bottom: 10px;
+}
+
+.teamTitle,
+.deadlineTitle,
+.riskTitle,
+.taskHeader,
+.projectTitle {
+  color: black;
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+
+.teamMember,
+.deadline,
+.riskText {
+  color: black;
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.taskContainer {
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.taskHeaders,
+.taskRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.taskCell {
+  font-weight: 400;
+  font-size: 16px;
+  color: #333;
+}
+
+.projectInfo {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 70%;
+}
+
+.projectDescription {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: Inter, sans-serif;
+  color: #444;
+}
+
+.projectPriority {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Inter, sans-serif;
+  color: darkred;
+}
+
+/* graph styling  */
+.projectGraph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  padding-right: 20px;
+}
