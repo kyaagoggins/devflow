@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Input Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../main.css">
+  <link rel="stylesheet" href="input.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div id="sidebarContainer"></div>
+
+    <div class="main-content">
+      <header class="header">
+        <h1 class="header-title">Project Input Form</h1>
+        <div class="search-container">
+          <input type="text" class="search-bar" placeholder="Search...">
+        </div>
+        <div class="header-icons">
+          <i class="fa fa-print header-icon"></i>
+          <i class="fa fa-share-alt header-icon"></i>
+          <i class="fa fa-cog header-icon"></i>
+          <div class="user-profile"></div>
+        </div>
+      </header>
+      <div class="content-wrapper">
+        <div class="card">
+          <form id="projectForm">
+            <h2>Dashboard Inputs</h2>
+            <label>Project Description:
+              <textarea name="description" required></textarea>
+            </label>
+            <label>Project Manager:
+              <input type="text" name="manager" required>
+            </label>
+            
+            <h3>Team Structure</h3>
+            <div class="team-section">
+              <div class="team-type">
+                <label>UI/UX Team Members (comma-separated):
+                  <input type="text" name="uiux_team">
+                </label>
+                <label>Frontend Team Members (comma-separated):
+                  <input type="text" name="frontend_team">
+                </label>
+                <label>Backend Team Members (comma-separated):
+                  <input type="text" name="backend_team">
+                </label>
+                <label>QA Team Members (comma-separated):
+                  <input type="text" name="qa_team">
+                </label>
+                <label>Other Team Members (comma-separated):
+                  <input type="text" name="other_team">
+                </label>
+              </div>
+            </div>
+            
+            <h3>Deadlines & Risks</h3>
+            <label>Current Deadlines (one per line):
+              <textarea name="current_deadlines"></textarea>
+            </label>
+            <label>Next Month Deadlines (one per line):
+              <textarea name="next_month_deadlines"></textarea>
+            </label>
+            <label>Risks:
+              <textarea name="risks"></textarea>
+            </label>
+            
+            <h3>Tasks</h3>
+            <div id="taskContainer">
+              <div class="task-item">
+                <label>Task Information:
+                  <input type="text" name="task_info[]" required>
+                </label>
+                <label>Due Date:
+                  <input type="date" name="task_due_date[]" required>
+                </label>
+                <label>Priority:
+                  <select name="task_priority[]" required>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                  </select>
+                </label>
+                <label>Team Assigned:
+                  <select name="task_team[]" required>
+                    <option value="UI/UX">UI/UX</option>
+                    <option value="Frontend">Frontend</option>
+                    <option value="Backend">Backend</option>
+                    <option value="QA">QA</option>
+                    <option value="All">All</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <button type="button" id="addTaskBtn">Add Another Task</button>
+
+            <h2>Requirements Tracking</h2>
+            <label>Requirements (one per line):
+              <textarea name="requirements" required></textarea>
+            </label>
+            <label>Priority:
+              <select name="priority" required>
+                <option value="critical">Critical</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+              </select>
+            </label>
+
+            <h2>File Upload</h2>
+            <label>Upload File:
+              <input type="file" name="file">
+            </label>
+
+            <button type="submit">Submit Project</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .task-item {
+      padding: 16px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      background: #f9f9f9;
+    }
+    
+    #addTaskBtn {
+      background: #dbc1bc;
+      color: black;
+      margin-bottom: 24px;
+    }
+    
+    h3 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    
+    .team-section {
+      padding: 16px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      background: #f9f9f9;
+    }
+  </style>
+
+  <script src="input.js"></script>
+</body>
+</html>
