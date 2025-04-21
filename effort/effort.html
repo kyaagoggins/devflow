@@ -1,40 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Effort Monitoring & Tracking</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="effort.css">
-</head>
-<body>
-  <div class="container">
-    <div class="sidebar">
-      <div class="titleDev">Devflow</div>
-      <div style="padding-bottom: 40%"></div>
-      <div id="projectText" class="projectText">Project Name</div>
-      <ul>
-        <li class="navText">
-          <i class="fa fa-star"></i>
-          <a href="dashboard.html">Dashboard</a>
-        </li>
-        <li class="navText">
-          <i class="fa fa-star"></i>
-          <a href="requirements.html">Requirements Tracking</a>
-        </li>
-        <li class="navText">
-          <i class="fa fa-star"></i>
-          <a href="effort.html">Effort Monitoring</a>
-        </li>
-      </ul>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Effort Monitoring & Tracking</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="effort.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div id="sidebarContainer"></div>
 
     <div class="main-content">
       <header class="header">
         <h1 class="header-title">Effort Monitoring</h1>
         <div class="search-container">
-          <input type="text" class="search-bar" placeholder="Search...">
+          <input type="text" class="search-bar" placeholder="Search..." />
         </div>
         <div class="header-icons">
           <i class="fa fa-print header-icon"></i>
@@ -43,15 +31,17 @@
           <div class="user-profile"></div>
         </div>
       </header>
-      
+
       <div class="content-wrapper">
         <div class="card entry-card">
           <h2>Add Effort Entry</h2>
           <form id="effortForm">
-            <label>Date:
-              <input type="date" name="date" required>
+            <label
+              >Date:
+              <input type="date" name="date" required />
             </label>
-            <label>Phase:
+            <label
+              >Phase:
               <select name="phase" required>
                 <option value="requirements">Requirements Analysis</option>
                 <option value="design">Design</option>
@@ -59,8 +49,9 @@
                 <option value="testing">Testing</option>
               </select>
             </label>
-            <label>Person-Hours:
-              <input type="number" name="hours" min="0" required>
+            <label
+              >Person-Hours:
+              <input type="number" name="hours" min="0" required />
             </label>
             <button type="submit">Add Entry</button>
           </form>
@@ -83,7 +74,7 @@
             </tbody>
           </table>
         </div>
-        
+
         <div class="card">
           <h2>Weekly Task Progress</h2>
           <table class="effort-table">
@@ -103,5 +94,9 @@
 
         <div class="card">
           <h2>Overall Effort Progress</h2>
-          <div
-
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="effort.js"></script>

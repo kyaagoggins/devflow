@@ -280,6 +280,7 @@
       rel="stylesheet"
     />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="dashboard.css" />
   </head>
 
   <body>
@@ -305,7 +306,7 @@
       <button
         class="btn userButton"
         id="userButton"
-        onclick="window.location.href='input.html'"
+        onclick="window.location.href='../input/input.html'"
       >
         <i class="fa fa-user-circle"></i>
       </button>
@@ -389,34 +390,34 @@
         console.log(data);
 
         displayTeams(data.team);
-        displayRisks(data.risks);
+        //displayRisks(data.risks);
 
-        const sampleTasks = [
-          {
-            name: "Write documentation",
-            due: "2025-04-15",
-            priority: "High",
-            team: "Dev",
-          },
-          {
-            name: "UI update",
-            due: "2025-04-18",
-            priority: "Medium",
-            team: "Design",
-          },
-        ];
+        // const sampleTasks = [
+        //   {
+        //     name: "Write documentation",
+        //     due: "2025-04-15",
+        //     priority: "High",
+        //     team: "Dev",
+        //   },
+        //   {
+        //     name: "UI update",
+        //     due: "2025-04-18",
+        //     priority: "Medium",
+        //     team: "Design",
+        //   },
+        // ];
 
-        displayTasks(sampleTasks);
+        // displayTasks(sampleTasks);
 
-        const exampleProject = {
-          title: "Project Phoenix",
-          description:
-            "This project is focused on revamping the UI of our dashboard system.",
-          priority: "High",
-          progress: 65,
-        };
+        // const exampleProject = {
+        //   title: "Project Phoenix",
+        //   description:
+        //     "This project is focused on revamping the UI of our dashboard system.",
+        //   priority: "High",
+        //   progress: 65,
+        // };
 
-        displayProjectInfo(exampleProject);
+        // displayProjectInfo(exampleProject);
       }
 
       function displayProjectInfo(projData) {
@@ -477,23 +478,30 @@
       function displayTeams(teamData) {
         const container = document.getElementById("teams");
 
-        teamData.forEach((team) => {
+        teamData = teamData["teamType"];
+
+        Object.entries(teamData).forEach(([teamTitle, members]) => {
+          console.log(teamTitle);
+          console.log("space");
+          console.log(members);
           const details = document.createElement("details");
 
           const summary = document.createElement("summary");
           summary.className = "teamTitle";
-          summary.textContent = team;
+          summary.textContent = teamTitle;
 
           details.appendChild(summary);
 
-          // team.members.forEach((member) => {
-          //   const p = document.createElement("p");
-          //   p.className = "teamMember";
-          //   p.textContent = member;
-          //   details.appendChild(p);
-          // });
+          if (Array.isArray(members)) {
+            members.forEach((member) => {
+              const p = document.createElement("p");
+              p.className = "teamMember";
+              p.textContent = member;
+              details.appendChild(p);
+            });
+          }
 
-          //container.appendChild(details);
+          container.appendChild(details);
         });
       }
     </script>
