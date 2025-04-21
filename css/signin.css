@@ -22,6 +22,7 @@ html {
 
 #signin-wrapper {
   background-color: transparent !important; /* don't override it here */
+  margin-top: 1.1rem;
 }
 
 form h1 {
