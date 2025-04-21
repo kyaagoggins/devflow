@@ -1,6 +1,6 @@
 # DevFlow
 
-# Livia - Homepage + Login + Contact Pages
+## Livia - Homepage + Login + Contact Pages
 
 ---
 
@@ -9,13 +9,6 @@
 | File/Folder        | Description |
 |--------------------|-------------|
 | `index.html`       | Main homepage of the site. It includes navigation, hero section, services, testimonials, and CTA. Styled using `root.css`, `dark.css`, `local.css`, and `critical.css`. |
-| `dashboard.html`   | A static HTML file showcasing the project dashboard layout. |
-| `effort.html`, `effort.css`, `effort.js` | Pages and scripts for tracking and visualizing effort spent on various tasks. |
-| `input.html`, `input.css`, `input.js` | UI for inputting project/task-related data. |
-| `navigation.html`  | Possibly an isolated test or snippet for navigation bar development. |
-| `script.js`        | General JavaScript used site-wide (if any). |
-| `Structure.html`   | Likely a wireframe, template, or reference structure for layout planning. |
-| `README.md`        | Markdown documentation file (you can paste this description here!). |
 
 ---
 
@@ -45,7 +38,7 @@ All custom CSS styles for different parts of the site.
 |--------------------|-------------|
 | `contact.css`      | Styles specific to the contact page. |
 | `critical.css`     | Critical styles loaded early to improve performance. |
-| `dark.css`         | Styles for dark mode functionality. |
+| `dark.css`         | Styles for dark mode functionality. Used to have a light mode.|
 | `local.css`        | Main styles used on the homepage (e.g. layout, typography). |
 | `projects.css`     | Possibly styles for a projects section or dashboard. |
 | `reviews.css`      | Styling for the testimonial/review section. |
@@ -65,9 +58,4 @@ Optimized image versions in different resolutions (e.g. `200w`, `400w`, `850w`, 
 | File               | Description |
 |--------------------|-------------|
 | `index.html`       | Sign in / register page with animated panel switching. Uses `signin.css` for styling and connects to logic for dummy login validation. |
-"""
 
-readme_path = Path("README.md")
-readme_path.write_text(readme_content.strip())
-
-"README.md file created successfully."
