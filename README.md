@@ -1,5 +1,8 @@
 # DevFlow
 
+**Email:** `test@devflow.com`  
+**Password:** `password123`
+
 ## Livia John - Homepage + Login + Contact 
 
 ---
@@ -40,7 +43,6 @@ All custom CSS styles for different parts of the site.
 | `critical.css`     | Critical styles loaded early to improve performance. |
 | `dark.css`         | Styles for dark mode functionality. Used to have a light mode.|
 | `local.css`        | Main styles used on the homepage (e.g. layout, typography). |
-| `projects.css`     | Possibly styles for a projects section or dashboard. |
 | `reviews.css`      | Styling for the testimonial/review section. |
 | `root.css`         | Base styling variables and root-level styles (colors, font sizes, etc). |
 | `signin.css`       | Styles for the login/register page in `signin/index.html`. |
