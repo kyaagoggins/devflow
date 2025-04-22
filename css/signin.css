@@ -53,7 +53,8 @@ form h1 {
   overflow: hidden;
   width: 768px;
   max-width: 100%;
-  min-height: 500px;
+  min-width: auto;
+  min-height: 425px;
 }
 
 .form-container {
@@ -194,7 +195,7 @@ form input {
   border: none;
   padding: 12px 15px;
   margin: 8px 0;
-  width: 100%;
+  width: 90%;
 }
 
 

@@ -33,7 +33,8 @@
         <link rel="stylesheet" href="/css/critical.css"/>
         <link rel="stylesheet" href="/css/signin.css">
 
-        <!--Put analytics tag here at the bottom to prevent it from render blocking-->
+
+        <link rel="icon" type="image/png" href="/assets/images/devflow-logo.png">
 
         <!-- For home page, use full title, including location for SEO. Other pages should just include the page name -->
         <title>
@@ -99,7 +100,7 @@
     </div>
 
     <div class="form-container login-container">
-      <form action="#">
+      <form id="login-form" action="#">
         <h1>Login </h1>
         <input type="email" id="login-email" placeholder="Email" required>
         <input type="password" id="login-password" placeholder="Password" required>
@@ -158,13 +159,13 @@ loginForm.addEventListener('submit', (e) => {
   const password = document.getElementById('login-password').value;
 
   loginStatus.textContent = 'Logging in...';
-  loginStatus.style.color = 'black';
+  loginStatus.style.color = 'white';
 
   // Simulate checking (e.g., dummy credentials)
   setTimeout(() => {
     if (email === 'test@devflow.com' && password === 'password123') {
       loginStatus.textContent = 'Login successful!';
-      loginStatus.style.color = 'green';
+      loginStatus.style.color = '#90ee90';
       // window.location.href = "/dashboard"; // Uncomment if you want to redirect
     } else {
       loginStatus.textContent = 'Invalid email or password.';
