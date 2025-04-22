@@ -1,5 +1,8 @@
 # DevFlow
 
+**Email:** `test@devflow.com`  
+**Password:** `password123`
+
 ## Livia John - Homepage + Login + Contact 
 
 ---
