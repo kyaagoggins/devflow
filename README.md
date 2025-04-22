@@ -55,6 +55,11 @@ Optimized image versions in different resolutions (e.g. `200w`, `400w`, `850w`, 
 
 ### 📁 `signin/`
 
+
+Email: test@devflow.com
+Password: password123
+
+
 | File               | Description |
 |--------------------|-------------|
 | `index.html`       | Sign in / register page with animated panel switching. Uses `signin.css` for styling and connects to logic for dummy login validation. |
