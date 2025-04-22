@@ -9,7 +9,7 @@ $(document).ready(function () {
   $(".navButton").on("click", function () {
     //if the sidebar is not shown yet, get the html
     if ($("body").css("margin-left") === "0px") {
-      $.get("/navigation.html", function (html) {
+      $.get("../../navigation/navigation.html", function (html) {
         $("#sidebarContainer").html(html); //show sidebar
         $(".title").css("padding-right", "47%");
         $("body").css("margin-left", "300px");
