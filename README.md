@@ -1,6 +1,6 @@
 # DevFlow
 
-## Livia John - Homepage + Login + Contact Pages
+## Livia John - Homepage + Login + Contact 
 
 ---
 
@@ -18,7 +18,7 @@ Assets used across the site including fonts, core images, and JavaScript.
 
 - **fonts/**: Custom web fonts (Roboto) used throughout the site.
 - **images/**: Raw images like logos, dashboards, and UI assets.
-- **js/**: Contains `dark.js` (for dark mode toggling) and `nav.js` (for mobile nav behavior).
+- **js/**: Contains `dark.js` (for dark mode toggling, but now we only have dark mode) and `nav.js` (for mobile nav behavior).
 
 ---
 
@@ -64,4 +64,3 @@ Optimized image versions in different resolutions (e.g. `200w`, `400w`, `850w`, 
 | File               | Description |
 |--------------------|-------------|
 | `index.html`       | Sign in / register page with animated panel switching. Uses `signin.css` for styling and connects to logic for dummy login validation. |
-
