@@ -56,8 +56,9 @@ Optimized image versions in different resolutions (e.g. `200w`, `400w`, `850w`, 
 ### 📁 `signin/`
 
 
-Email: test@devflow.com
-Password: password123
+**Email:** `test@devflow.com`  
+**Password:** `password123`
+
 
 
 | File               | Description |
