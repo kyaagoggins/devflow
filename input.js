@@ -1,3 +1,4 @@
+git pull origin kk-branch
 document.addEventListener('DOMContentLoaded', function() {
   // add task button functionality
   document.getElementById('addTaskBtn').addEventListener('click', function() {
