@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (savedData) {
     const data = JSON.parse(savedData);
     const form = document.getElementById("projectForm");
+    form.title.value = data.title || "";
     form.description.value = data.description || "";
     form.manager.value = data.manager || "";
     form.uiux_team.value = data.team?.teamType?.["UI/UX"]?.join(", ") || "";
