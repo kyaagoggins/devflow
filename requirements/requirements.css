@@ -1,0 +1,148 @@
+.rectangle-div {
+  width: 30%;
+  position: relative;
+  border-radius: 33px;
+  background-color: #fff;
+  border: 3px solid #d2c6ce;
+  box-sizing: border-box;
+  height: 38px;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+form {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: 'Inter', sans-serif;
+}
+
+button {
+  background: #62929e;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 16px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+h2 {
+  color: #333;
+  margin-top: 25px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+.task-item {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.remove-task {
+  background: #dc3545;
+  padding: 8px 16px;
+  margin-top: 8px;
+}
+
+/* styling for left side nav bar */
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-left: 1%;
+}
+
+.hidden {
+  display: none;
+}
+
+.login-page,
+.dashboard-page,
+.effort-tracking-page,
+.requirements-tracking-page {
+  padding: 20px;
+}
+
+.userButton,
+.settingsButton,
+.downloadButton {
+  margin-top: 1% !important;
+  margin-bottom: 1% !important;
+}
+
+.userButton {
+  margin-left: 10px !important;
+  margin-right: 1% !important;
+}
+
+.settingsButton {
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
+.downloadButton {
+  margin-left: 1% !important;
+  margin-right: 10px !important;
+}
+
+/* Make thread look like h1 */
+.requirements-table th {
+  font-size: 2em; /* Same as h1 */
+  font-weight: bold;
+  margin: 0;
+}
+
+/* For priority button colors (Currently not working for now) */
+.priority-select {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.priority-high {
+  background-color: #f44336 !important; /* Red */
+  color: white !important;
+}
+
+.priority-medium {
+  background-color: #ffeb3b !important; /* Yellow */
+  color: black !important;
+}
+
+.priority-low {
+  background-color: #4caf50 !important; /* Green */
+  color: white !important;
+}
+
+
+
