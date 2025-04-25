@@ -1,253 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Effort Monitoring & Tracking</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="effort.css">
-  <style>
-    .sidebar {
-      position: fixed;
-      width: 213px;
-      height: 100%;
-      background-color: #62929e;
-      color: black;
-      padding: 20px;
-      overflow-y: auto;
-    }
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-    }
-    .sidebar li a {
-      text-decoration: none;
-      display: block;
-      padding: 8px 0;
-    }
-    .titleDev {
-      color: black;
-      font-size: 32px;
-      font-family: "Pacifico", cursive;
-      font-weight: 400;
-      word-wrap: break-word;
-    }
-    .projectText {
-      color: black;
-      font-size: 32px;
-      font-family: Inter, sans-serif;
-      font-weight: 400;
-      word-wrap: break-word;
-      padding-bottom: 5%;
-    }
-    .navText {
-      font-size: 20px;
-      font-family: Inter, sans-serif;
-      font-weight: 400;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 0;
-    }
-    .navText a {
-      color: black;
-      text-decoration: none;
-      font-weight: normal;
-    }
-    .navText i {
-      color: white;
-    }
-    /* inline color classes for budget status */
-    .over-budget { color: #d32f2f; font-weight: bold; }
-    .near-budget { color: #f9a825; font-weight: bold; }
-    .under-budget { color: #388e3c; }
-    .effort-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-      border-spacing: 0;
-    }
-    .effort-table th, .effort-table td {
-      padding: 12px 15px;
-      text-align: left;
-      border-bottom: 1px solid #eee;
-    }
-    .effort-table th {
-      background-color: #f8f8f8;
-      font-weight: bold;
-    }
-    .entry-card, .card {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-      padding: 20px 30px;
-      margin-bottom: 30px;
-    }
-    .main-content {
-      margin-left: 233px;
-      padding: 40px 20px;
-    }
-    form input, form select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-    }
-    form button {
-      background: #28a745;
-      color: #fff;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1em;
-    }
-    form button:hover {
-      background: #218838;
-    }
-    label {
-      font-weight: 600;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <!-- sidebar -->
-    <div class="sidebar">
-      <div class="titleDev">Devflow</div>
-      <div style="padding-bottom: 40%"></div>
-      <div id="projectText" class="projectText">Project Name</div>
-      <ul>
-        <li class="navText">
-          <i class="fa fa-star"></i>
-          <a href="dashboard.html">Dashboard</a>
-        </li>
-        <li class="navText">
-          <i class="fa fa-star"></i>
-          <a href="requirements.html">Requirements Tracking</a>
-        </li>
-        <li class="navText">
-          <i class="fa fa-star"></i>
-          <a href="effort.html">Effort Monitoring</a>
-        </li>
-      </ul>
-    </div>
-    <!-- main content -->
-    <div class="main-content">
-      <header class="header">
-        <h1 class="header-title">Effort Monitoring</h1>
-        <div class="search-container">
-          <input type="text" class="search-bar" placeholder="Search...">
-        </div>
-        <div class="header-icons">
-          <i class="fa fa-print header-icon"></i>
-          <i class="fa fa-share-alt header-icon"></i>
-          <i class="fa fa-cog header-icon"></i>
-          <div class="user-profile"></div>
-        </div>
-      </header>
-      <div class="content-wrapper">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Effort Monitoring & Tracking</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="effort.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      /* inline color classes for budget status */
+      .over-budget {
+        color: #d32f2f;
+        font-weight: bold;
+      }
+      .near-budget {
+        color: #f9a825;
+        font-weight: bold;
+      }
+      .under-budget {
+        color: #388e3c;
+      }
+      .effort-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        border-spacing: 0;
+      }
+      .effort-table th,
+      .effort-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+      }
+      .effort-table th {
+        background-color: #f8f8f8;
+        font-weight: bold;
+      }
+      .entry-card,
+      .card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+        padding: 20px 30px;
+        margin-bottom: 30px;
+      }
+      .main-content {
+        margin-left: 233px;
+        padding: 40px 20px;
+      }
+      form input,
+      form select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+      }
+      form button {
+        background: #28a745;
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1em;
+      }
+      form button:hover {
+        background: #218838;
+      }
+      label {
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- sidebar -->
+      <div id="sidebarContainer"></div>
+      <!-- main content -->
+      <div class="main-content">
+        <header class="header">
+          <h1 class="header-title">Effort Monitoring</h1>
+          <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search..." />
+          </div>
+          <div class="header-icons">
+            <i class="fa fa-print header-icon"></i>
+            <i
+              class="fa fa-share-alt header-icon"
+              onclick="window.location.href='../input/input.html'"
+            ></i>
+            <i
+              class="fa fa-cog header-icon"
+              onclick="window.location.href='../input/input.html'"
+            ></i>
+            <div class="user-profile"></div>
+          </div>
+        </header>
+        <div class="content-wrapper">
+          <div class="card entry-card">
+            <h2>Add Effort Entry</h2>
+            <form id="effortForm">
+              <label
+                >Date:
+                <input type="date" name="date" required />
+              </label>
+              <label
+                >Phase:
+                <select name="phase" required>
+                  <option value="requirements">Requirements Analysis</option>
+                  <option value="design">Design</option>
+                  <option value="coding">Coding</option>
+                  <option value="testing">Testing</option>
+                </select>
+              </label>
+              <label
+                >Person-Hours:
+                <input type="number" name="hours" min="0" required />
+              </label>
+              <button type="submit">Add Entry</button>
+            </form>
+            <div>
+              <h3>Effort Entries</h3>
+              <table class="effort-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Phase</th>
+                    <th>Person-Hours</th>
+                  </tr>
+                </thead>
+                <tbody id="effortEntriesTable">
+                  <!-- populated by js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-        <div class="card entry-card">
-          <h2>Add Effort Entry</h2>
-          <form id="effortForm">
-            <label>Date:
-              <input type="date" name="date" required>
-            </label>
-            <label>Phase:
-              <select name="phase" required>
-                <option value="requirements">Requirements Analysis</option>
-                <option value="design">Design</option>
-                <option value="coding">Coding</option>
-                <option value="testing">Testing</option>
-              </select>
-            </label>
-            <label>Person-Hours:
-              <input type="number" name="hours" min="0" required>
-            </label>
-            <button type="submit">Add Entry</button>
-          </form>
-          <div>
-            <h3>Effort Entries</h3>
+          <!-- daily task section -->
+          <div class="card">
+            <h2>Add Daily Task</h2>
+            <form id="dailyTaskForm" style="margin-bottom: 20px">
+              <input name="task" placeholder="Task Name" required />
+              <input name="team" placeholder="Team" required />
+              <input
+                name="progress"
+                type="number"
+                placeholder="Progress (%)"
+                min="0"
+                max="100"
+                required
+              />
+              <input
+                name="budgeted"
+                type="number"
+                placeholder="Budgeted Hours"
+                min="0"
+                required
+              />
+              <input
+                name="actual"
+                type="number"
+                placeholder="Actual Hours"
+                min="0"
+                required
+              />
+              <button type="submit">Add Daily Task</button>
+            </form>
+            <h2>Daily Task Progress</h2>
             <table class="effort-table">
               <thead>
                 <tr>
-                  <th>Date</th>
-                  <th>Phase</th>
-                  <th>Person-Hours</th>
+                  <th>Assigned Task</th>
+                  <th>Team</th>
+                  <th>Progress</th>
+                  <th>Budgeted</th>
+                  <th>Actual</th>
                 </tr>
               </thead>
-              <tbody id="effortEntriesTable">
+              <tbody id="dailyTasksTable">
                 <!-- populated by js -->
               </tbody>
             </table>
           </div>
-        </div>
 
-        <!-- daily task section -->
-        <div class="card">
-          <h2>Add Daily Task</h2>
-          <form id="dailyTaskForm" style="margin-bottom: 20px;">
-            <input name="task" placeholder="Task Name" required>
-            <input name="team" placeholder="Team" required>
-            <input name="progress" type="number" placeholder="Progress (%)" min="0" max="100" required>
-            <input name="budgeted" type="number" placeholder="Budgeted Hours" min="0" required>
-            <input name="actual" type="number" placeholder="Actual Hours" min="0" required>
-            <button type="submit">Add Daily Task</button>
-          </form>
-          <h2>Daily Task Progress</h2>
-          <table class="effort-table">
-            <thead>
-              <tr>
-                <th>Assigned Task</th>
-                <th>Team</th>
-                <th>Progress</th>
-                <th>Budgeted</th>
-                <th>Actual</th>
-              </tr>
-            </thead>
-            <tbody id="dailyTasksTable">
-              <!-- populated by js -->
-            </tbody>
-          </table>
-        </div>
-        
-        <!-- weekly task section -->
-        <div class="card">
-          <h2>Add Weekly Task</h2>
-          <form id="weeklyTaskForm" style="margin-bottom: 20px;">
-            <input name="task" placeholder="Task Name" required>
-            <input name="team" placeholder="Team" required>
-            <input name="budgeted" type="number" placeholder="Budgeted Hours" min="0" required>
-            <input name="actual" type="number" placeholder="Actual Hours" min="0" required>
-            <button type="submit">Add Weekly Task</button>
-          </form>
-          <h2>Weekly Task Progress</h2>
-          <table class="effort-table">
-            <thead>
-              <tr>
-                <th>Assigned Task</th>
-                <th>Team</th>
-                <th>Budgeted</th>
-                <th>Actual</th>
-              </tr>
-            </thead>
-            <tbody id="weeklyTasksTable">
-              <!-- populated by js -->
-            </tbody>
-          </table>
-        </div>
+          <!-- weekly task section -->
+          <div class="card">
+            <h2>Add Weekly Task</h2>
+            <form id="weeklyTaskForm" style="margin-bottom: 20px">
+              <input name="task" placeholder="Task Name" required />
+              <input name="team" placeholder="Team" required />
+              <input
+                name="budgeted"
+                type="number"
+                placeholder="Budgeted Hours"
+                min="0"
+                required
+              />
+              <input
+                name="actual"
+                type="number"
+                placeholder="Actual Hours"
+                min="0"
+                required
+              />
+              <button type="submit">Add Weekly Task</button>
+            </form>
+            <h2>Weekly Task Progress</h2>
+            <table class="effort-table">
+              <thead>
+                <tr>
+                  <th>Assigned Task</th>
+                  <th>Team</th>
+                  <th>Budgeted</th>
+                  <th>Actual</th>
+                </tr>
+              </thead>
+              <tbody id="weeklyTasksTable">
+                <!-- populated by js -->
+              </tbody>
+            </table>
+          </div>
 
-        <div class="card">
-          <h2>Overall Effort Progress</h2>
-          <div id="progressDashboard"></div>
+          <div class="card">
+            <h2>Overall Effort Progress</h2>
+            <div id="progressDashboard"></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <script src="effort.js"></script>
-</body>
+    <script src="effort.js"></script>
+  </body>
 </html>

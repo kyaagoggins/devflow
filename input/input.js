@@ -43,9 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
     form.risks.value = Array.isArray(data.risks)
       ? data.risks.join("\n")
       : data.risks || "";
-    form.requirements.value = Array.isArray(data.requirements)
-      ? data.requirements.join("\n")
-      : data.requirements || "";
     form.priority.value = data.priority || "";
 
     // remove default task items if present
@@ -141,10 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
           .map((s) => s.trim())
           .filter(Boolean),
         tasks: tasks,
-        requirements: form.requirements.value
-          .split("\n")
-          .map((s) => s.trim())
-          .filter(Boolean),
         priority: form.priority.value,
         file: form.file.files[0] ? form.file.files[0].name : "No file uploaded",
       };

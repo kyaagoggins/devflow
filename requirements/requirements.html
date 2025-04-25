@@ -1,109 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Requirements Tracking</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Pacifico&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../main.css" />
-  <link rel="stylesheet" href="requirements.css" />
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Requirements Tracking</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="requirements.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
 
-<body>
-  <div id="sidebarContainer"></div>
+  <body>
+    <div id="sidebarContainer"></div>
 
-  <div class="main-content">
-    <header class="header">
-      <h1 class="header-title">Requirements Tracking</h1>
-      <div class="search-container">
-        <input type="text" class="search-bar" placeholder="Search..." />
-      </div>
-      <div class="header-icons">
-        <i class="fa fa-print header-icon"></i>
-        <i class="fa fa-share-alt header-icon" onclick="window.location.href='../input/input.html'"></i>
-        <i class="fa fa-cog header-icon" onclick="window.location.href='../input/input.html'"></i>
-        <div class="user-profile"></div>
-      </div>
-    </header>
-
-    <div class="content-wrapper">
-      <form id="projectForm">
-
-        <!-- Functional Requirements -->
-        <h1>Functional Requirements</h1>
-        <div class="requirements-box">
-          <table class="requirements-table">
-            <thead>
-              <tr>
-                <th style="width: 10%;">ID</th>
-                <th style="width: 15%;">Abbreviated</th>
-                <th style="width: 50%;">Expanded</th>
-                <th style="width: 25%;">Priority</th>
-              </tr>
-            </thead>
-            <tbody id="functional-req-body">
-              <tr>
-                <td><input type="text" name="func_id[]" required /></td>
-                <td><input type="text" name="func_abbrev[]" required /></td>
-                <td><textarea name="func_expanded[]" required></textarea></td>
-                <td>
-                  <div class="priority-wrapper">
-                    <select name="func_priority[]" class="priority-dropdown" required>
-                      <option value="high">High</option>
-                      <option value="medium">Medium</option>
-                      <option value="low">Low</option>
-                      <option value="remove">Remove</option>
-                    </select>
-                    <span class="priority-indicator"></span>
-                  </div>
-                </td>
-                
-              </tr>
-            </tbody>
-          </table>
-          <button type="button" id="addFunctionalBtn">Add Functional Requirement</button>
+    <div class="main-content">
+      <header class="header">
+        <h1 class="header-title">Requirements Tracking</h1>
+        <div class="search-container">
+          <input type="text" class="search-bar" placeholder="Search..." />
         </div>
-
-        <!-- Non-Functional Requirements -->
-        <h1>Non-Functional Requirements</h1>
-        <div class="requirements-box">
-          <table class="requirements-table">
-            <thead>
-              <tr>
-                <th style="width: 10%;">ID</th>
-                <th style="width: 15%;">Name</th>
-                <th style="width: 50%;">Associated Metrics</th>
-                <th style="width: 25%;">Priority</th>
-              </tr>
-            </thead>
-            <tbody id="non-functional-req-body">
-              <tr>
-                <td><input type="text" name="non_func_id[]" required /></td>
-                <td><input type="text" name="non_func_abbrev[]" required /></td>
-                <td><textarea name="non_func_expanded[]" required></textarea></td>
-                <td>
-                  <div class="priority-wrapper">
-                    <select name="func_priority[]" class="priority-dropdown" required>
-                      <option value="high">High</option>
-                      <option value="medium">Medium</option>
-                      <option value="low">Low</option>
-                      <option value="remove">Remove</option>
-                    </select>
-                    <span class="priority-indicator"></span>
-                  </div>
-                </td>
-                
-              </tr>
-            </tbody>
-          </table>
-          <button type="button" id="addNonFunctionalBtn">Add Non-Functional Requirement</button>
+        <div class="header-icons">
+          <i class="fa fa-print header-icon"></i>
+          <i
+            class="fa fa-share-alt header-icon"
+            onclick="window.location.href='../input/input.html'"
+          ></i>
+          <i
+            class="fa fa-cog header-icon"
+            onclick="window.location.href='../input/input.html'"
+          ></i>
+          <div class="user-profile"></div>
         </div>
+      </header>
 
-      </form>
+      <div class="content-wrapper">
+        <form id="projectForm">
+          <!-- Functional Requirements -->
+          <h1>Functional Requirements</h1>
+          <div class="requirements-box">
+            <table class="requirements-table">
+              <thead>
+                <tr>
+                  <th style="width: 10%">ID</th>
+                  <th style="width: 15%">Abbreviated</th>
+                  <th style="width: 50%">Expanded</th>
+                  <th style="width: 25%">Priority</th>
+                </tr>
+              </thead>
+              <tbody id="functional-req-body">
+                <tr>
+                  <td><input type="text" name="func_id[]" required /></td>
+                  <td><input type="text" name="func_abbrev[]" required /></td>
+                  <td><textarea name="func_expanded[]" required></textarea></td>
+                  <td>
+                    <div class="priority-wrapper">
+                      <select
+                        name="func_priority[]"
+                        class="priority-dropdown"
+                        required
+                      >
+                        <option value="">--</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                        <option value="remove">Remove</option>
+                      </select>
+                      <span class="priority-indicator"></span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button type="button" id="addFunctionalBtn">
+              Add Functional Requirement
+            </button>
+          </div>
+
+          <!-- Non-Functional Requirements -->
+          <h1>Non-Functional Requirements</h1>
+          <div class="requirements-box">
+            <table class="requirements-table">
+              <thead>
+                <tr>
+                  <th style="width: 10%">ID</th>
+                  <th style="width: 15%">Name</th>
+                  <th style="width: 50%">Associated Metrics</th>
+                  <th style="width: 25%">Priority</th>
+                </tr>
+              </thead>
+              <tbody id="non-functional-req-body">
+                <tr>
+                  <td><input type="text" name="non_func_id[]" required /></td>
+                  <td>
+                    <input type="text" name="non_func_abbrev[]" required />
+                  </td>
+                  <td>
+                    <textarea name="non_func_expanded[]" required></textarea>
+                  </td>
+                  <td>
+                    <div class="priority-wrapper">
+                      <select
+                        name="func_priority[]"
+                        class="priority-dropdown"
+                        required
+                      >
+                        <option value="">--</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                        <option value="remove">Remove</option>
+                      </select>
+                      <span class="priority-indicator"></span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button type="button" id="addNonFunctionalBtn">
+              Add Non-Functional Requirement
+            </button>
+          </div>
+          <button type="button" id="saveBtn">Save Requirements</button>
+        </form>
+      </div>
     </div>
-  </div>
 
-  <script src="requirements.js"></script>
-</body>
+    <script src="requirements.js"></script>
+  </body>
 </html>
