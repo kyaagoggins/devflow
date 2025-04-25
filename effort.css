@@ -66,3 +66,16 @@ button:hover {
   font-weight: bold;
 }
 
+/* budget status color coding */
+.over-budget {
+  color: #d32f2f;      /* red */
+  font-weight: bold;
+}
+.near-budget {
+  color: #f9a825;      /* orange */
+  font-weight: bold;
+}
+.under-budget {
+  color: #388e3c;      /* green */
+}
+
