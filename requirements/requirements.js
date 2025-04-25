@@ -1,24 +1,42 @@
-// Load sidebar navigation on page load
 $(document).ready(function () {
   $.get("../navigation/navigation.html", function (html) {
     $("#sidebarContainer").html(html);
-    $(".main-content").css("margin-left", "300px"); // Adjust if needed
+    $(".main-content").css("margin-left", "300px");
+
+
+const btn = document.getElementById("addTaskBtn");
+console.log("Found button?", btn);
+
+if (btn) {
+  btn.addEventListener("click", function () {
+    addTaskItem();
   });
+
+}
+});
 });
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Add task item button
-  document.getElementById("addTaskBtn").addEventListener("click", function () {
-    addTaskItem();
-  });
+  console.log("DOM fully loaded");
 
-  // Remove task functionality
-  document.getElementById("taskContainer").addEventListener("click", function (e) {
-    if (e.target.classList.contains("remove-task")) {
+  let taskContainer = document.getElementById("taskContainer");
+  if (!taskContainer) {
+    taskContainer = document.createElement("div");
+taskContainer.id = "taskContainer";
+document.body.appendChild(taskContainer);
+  } 
+
+  taskContainer.addEventListener("click", function (e) {
+    if (e.target.classList.contains("remove-task")) { 
       e.target.closest(".task-item").remove();
     }
   });
+
+
+
+
+
 
   // Form submission logic
   document.getElementById("projectForm").addEventListener("submit", function (e) {
@@ -42,8 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
       title: form.title.value,
       description: form.description.value,
       manager: form.manager.value,
-      team,
-      deadlines,
+      //team,
+      //deadlines,
       risks: form.risks.value.split("\n").map(s => s.trim()).filter(Boolean),
       tasks,
       requirements: form.requirements.value.split("\n").map(s => s.trim()).filter(Boolean),
@@ -63,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("projectForm");
 
 
-    document.getElementById("taskContainer").innerHTML = "";
+taskContainer.innerHTML = "";
 
     if (Array.isArray(data.tasks)) {
       data.tasks.forEach(task => addTaskItem(task));
@@ -123,6 +141,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const prioritySelect = newTask.querySelector('select[name="task_priority[]"]');
     applyPriorityColor(prioritySelect);
     prioritySelect.addEventListener("change", () => applyPriorityColor(prioritySelect));
+  }
+
+//test I found to define this awful function that keeps throwing errors
+  function addFunctionalRow() {
+    console.log("Adding this functional row");
+    const container = document.getElementById("functionalRowContainer");
+    const newRow = document.createElement("div");
+    newRow.className = "functional-row";
+    newRow.innerHTML = `
+      <label>Functional Info:
+        <input type="text" name="functional_info[]" required>
+      </label>
+      <button type="button" class="remove-functional">Remove</button>
+    `;
+    container.appendChild(newRow);
   }
 
   function escapeHtml(text) {
