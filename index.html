@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Devflow Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
     <style>
       .sidebar {
         position: fixed;
@@ -58,6 +64,90 @@
       .navText i {
         color: white;
       }
+      .main-content {
+        margin-left: 233px;
+        padding: 40px 20px;
+      }
+      .dashboard-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+      .section-title {
+        margin-top: 0;
+      }
+      .team-section,
+      .metrics-section,
+      .deadlines-section,
+      .risks-section,
+      .tasks-section {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+        padding: 20px 30px;
+        margin-bottom: 30px;
+      }
+      .modify-button,
+      .remove-button,
+      .add-button {
+        background: #28a745;
+        color: #fff;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.9em;
+        margin: 5px 0;
+      }
+      .modify-button:hover,
+      .remove-button:hover,
+      .add-button:hover {
+        background: #218838;
+      }
+      .priority-high {
+        color: #d32f2f;
+        font-weight: bold;
+      }
+      .priority-medium {
+        color: #f9a825;
+        font-weight: bold;
+      }
+      .priority-low {
+        color: #388e3c;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        text-align: left;
+      }
+      th {
+        background: #f8f8f8;
+      }
+      .form-inline input,
+      .form-inline select {
+        margin-right: 8px;
+        margin-bottom: 8px;
+      }
+      .form-inline {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      @media (max-width: 900px) {
+        .dashboard-grid {
+          grid-template-columns: 1fr;
+        }
+        .main-content {
+          margin-left: 0;
+        }
+      }
     </style>
 </head>
 <body>
@@ -82,132 +172,272 @@
         </li>
       </ul>
     </div>
-    <!-- main Content -->
+    <!-- main content -->
     <div class="main-content">
-        <header class="header">
-            <h1 class="header-title">Dashboard</h1>
-            <div class="search-container">
-                <input type="text" class="search-bar" placeholder="Search...">
-            </div>
-            <div class="header-icons">
-                <i class="fa fa-print header-icon"></i>
-                <i class="fa fa-share-alt header-icon"></i>
-                <i class="fa fa-cog header-icon"></i>
-                <div class="user-profile"></div>
-            </div>
-        </header>
-        <div class="content-wrapper">
-            <div class="dashboard-grid">
-                <div class="team-section">
-                    <h2 class="section-title">Project Manager</h2>
-                    <p>Name: John Smith</p>
-                    <button class="modify-button">Modify Member</button>
-                    
-                    <h2 class="section-title">UI/UX</h2>
-                    <p>Name: Jane Doe, Position: UI Designer</p>
-                    <button class="modify-button">Modify Member</button>
-                    
-                    <h2 class="section-title">Frontend</h2>
-                    <p>Name: Alice Johnson, Position: Frontend Developer</p>
-                    <button class="modify-button">Modify Member</button>
-        
-                    <h2 class="section-title">Backend</h2>
-                    <p>Name: Bob Williams, Position: Backend Developer</p>
-                    <button class="modify-button">Modify Member</button>
-        
-                    <h2 class="section-title">QA</h2>
-                    <p>Name: Eve Brown, Position: QA Engineer</p>
-                    <button class="modify-button">Modify Member</button>
-                </div>
-                
-                <div class="metrics-section">
-                    <h2 class="section-title">Metrics</h2>
-                    <!-- placeholder for a chart -->
-                    <div style="width:100%; height:200px; border:1px solid #ddd; background:#f9f9f9; text-align:center; line-height:200px;">Chart Placeholder</div>
-                </div>
-        
-                <div class="deadlines-section">
-                    <h2 class="section-title">Deadlines</h2>
-                    <h3>Current</h3>
-                    <ul>
-                        <li>Do stuff</li>
-                        <li>Do more stuff</li>
-                        <li>Stuff never ends</li>
-                    </ul>
-                    <h3>Next Month</h3>
-                    <ul>
-                        <li>Stuff</li>
-                        <li>More stuff</li>
-                    </ul>
-                    <h3>Next Quarter</h3>
-                    <ul>
-                        <li>Important Stuff</li>
-                        <li>Critical Task</li>
-                    </ul>
-                </div>
-                
-                <div class="risks-section">
-                    <h2 class="section-title">Risks</h2>
-                    <h3>Current</h3>
-                    <ul>
-                        <li>Risk</li>
-                        <li>More risk</li>
-                        <li>Too many risks</li>
-                    </ul>
-                    <h3>Next Month</h3>
-                    <ul>
-                        <li>Another Risk</li>
-                        <li>Even More Risk</li>
-                    </ul>
-                    <h3>Next Quarter</h3>
-                    <ul>
-                        <li>Critical Risk</li>
-                        <li>Severe Risk</li>
-                    </ul>
-                </div>
-                
-                <div class="tasks-section">
-                    <h2 class="section-title">Tasks</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Task</th>
-                                <th>Due</th>
-                                <th>Priority</th>
-                                <th>Team</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Take a vacation</td>
-                                <td>3/21/2025</td>
-                                <td class="priority-high">High</td>
-                                <td>All</td>
-                            </tr>
-                            <tr>
-                                <td>Pet the dog</td>
-                                <td>daily</td>
-                                <td class="priority-medium">Medium</td>
-                                <td>People who like dogs</td>
-                            </tr>
-                             <tr>
-                                <td>Tell the dog he's a good boy</td>
-                                <td>3/20/2025</td>
-                                <td class="priority-medium">Medium</td>
-                                <td>Just kidding, I told him</td>
-                            </tr>
-                            <tr>
-                                <td>Susan's birthday</td>
-                                <td>3/28/2025</td>
-                                <td class="priority-low">Low</td>
-                                <td>Gluten free cakes aren't that great :(</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+      <header class="header">
+        <h1 class="header-title">Dashboard</h1>
+        <div class="search-container">
+          <input type="text" class="search-bar" placeholder="Search..." />
         </div>
+        <div class="header-icons">
+          <i class="fa fa-print header-icon"></i>
+          <i class="fa fa-share-alt header-icon"></i>
+          <i class="fa fa-cog header-icon"></i>
+          <div class="user-profile"></div>
+        </div>
+      </header>
+      <div class="content-wrapper">
+        <div class="dashboard-grid">
+          <!-- Team Section -->
+          <div class="team-section">
+            <h2 class="section-title">Team Members</h2>
+            <form id="addMemberForm" class="form-inline">
+              <input name="name" placeholder="Name" required />
+              <input name="position" placeholder="Position" required />
+              <input name="team" placeholder="Team" required />
+              <button type="submit" class="add-button">Add Member</button>
+            </form>
+            <ul id="teamList"></ul>
+          </div>
+
+          <!-- metrics section -->
+          <div class="metrics-section">
+            <h2 class="section-title">Metrics</h2>
+            <div
+              style="
+                width: 100%;
+                height: 200px;
+                border: 1px solid #ddd;
+                background: #f9f9f9;
+                text-align: center;
+                line-height: 200px;
+              "
+            >
+              <span id="metricsText">No metrics yet</span>
+            </div>
+          </div>
+
+          <!-- deadlines section -->
+          <div class="deadlines-section">
+            <h2 class="section-title">Deadlines</h2>
+            <form id="addDeadlineForm" class="form-inline">
+              <input name="when" placeholder="When (e.g. Current, Next Month)" required />
+              <input name="desc" placeholder="Deadline Description" required />
+              <button type="submit" class="add-button">Add Deadline</button>
+            </form>
+            <div id="deadlinesList"></div>
+          </div>
+
+          <!-- risks section -->
+          <div class="risks-section">
+            <h2 class="section-title">Risks</h2>
+            <form id="addRiskForm" class="form-inline">
+              <input name="when" placeholder="When (e.g. Current, Next Month)" required />
+              <input name="desc" placeholder="Risk Description" required />
+              <button type="submit" class="add-button">Add Risk</button>
+            </form>
+            <div id="risksList"></div>
+          </div>
+
+          <!-- tasks section -->
+          <div class="tasks-section">
+            <h2 class="section-title">Tasks</h2>
+            <form id="addTaskForm" class="form-inline">
+              <input name="task" placeholder="Task" required />
+              <input name="due" placeholder="Due (e.g. 3/21/2025)" required />
+              <select name="priority" required>
+                <option value="" disabled selected>Select Priority</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+              </select>
+              <input name="team" placeholder="Team" required />
+              <button type="submit" class="add-button">Add Task</button>
+            </form>
+            <table>
+              <thead>
+                <tr>
+                  <th>Task</th>
+                  <th>Due</th>
+                  <th>Priority</th>
+                  <th>Team</th>
+                  <th>Remove</th>
+                </tr>
+              </thead>
+              <tbody id="tasksTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <script>
+    // --- team members ---
+    const team = [];
+    function renderTeam() {
+      const list = document.getElementById("teamList");
+      list.innerHTML = "";
+      if (team.length === 0) {
+        list.innerHTML = "<p>No team members added yet.</p>";
+        return;
+      }
+      team.forEach((member, idx) => {
+        const li = document.createElement("li");
+        li.textContent = `${member.name} (${member.position}, ${member.team}) `;
+        const btn = document.createElement("button");
+        btn.textContent = "Remove";
+        btn.className = "remove-button";
+        btn.onclick = () => {
+          team.splice(idx, 1);
+          renderTeam();
+        };
+        li.appendChild(btn);
+        list.appendChild(li);
+      });
+    }
+    document.getElementById("addMemberForm").onsubmit = function (e) {
+      e.preventDefault();
+      const f = e.target;
+      team.push({
+        name: f.name.value.trim(),
+        position: f.position.value.trim(),
+        team: f.team.value.trim(),
+      });
+      renderTeam();
+      f.reset();
+    };
+    renderTeam();
+
+    // --- deadlines ---
+    const deadlines = {};
+    function renderDeadlines() {
+      const div = document.getElementById("deadlinesList");
+      div.innerHTML = "";
+      if (Object.keys(deadlines).length === 0) {
+        div.innerHTML = "<p>No deadlines added yet.</p>";
+        return;
+      }
+      for (const when in deadlines) {
+        const h3 = document.createElement("h3");
+        h3.textContent = when;
+        div.appendChild(h3);
+        const ul = document.createElement("ul");
+        deadlines[when].forEach((desc, idx) => {
+          const li = document.createElement("li");
+          li.textContent = desc + " ";
+          const btn = document.createElement("button");
+          btn.textContent = "Remove";
+          btn.className = "remove-button";
+          btn.onclick = () => {
+            deadlines[when].splice(idx, 1);
+            if (deadlines[when].length === 0) delete deadlines[when];
+            renderDeadlines();
+          };
+          li.appendChild(btn);
+          ul.appendChild(li);
+        });
+        div.appendChild(ul);
+      }
+    }
+    document.getElementById("addDeadlineForm").onsubmit = function (e) {
+      e.preventDefault();
+      const f = e.target;
+      const when = f.when.value.trim();
+      const desc = f.desc.value.trim();
+      if (!deadlines[when]) deadlines[when] = [];
+      deadlines[when].push(desc);
+      renderDeadlines();
+      f.reset();
+    };
+    renderDeadlines();
+
+    // --- risks ---
+    const risks = {};
+    function renderRisks() {
+      const div = document.getElementById("risksList");
+      div.innerHTML = "";
+      if (Object.keys(risks).length === 0) {
+        div.innerHTML = "<p>No risks added yet.</p>";
+        return;
+      }
+      for (const when in risks) {
+        const h3 = document.createElement("h3");
+        h3.textContent = when;
+        div.appendChild(h3);
+        const ul = document.createElement("ul");
+        risks[when].forEach((desc, idx) => {
+          const li = document.createElement("li");
+          li.textContent = desc + " ";
+          const btn = document.createElement("button");
+          btn.textContent = "Remove";
+          btn.className = "remove-button";
+          btn.onclick = () => {
+            risks[when].splice(idx, 1);
+            if (risks[when].length === 0) delete risks[when];
+            renderRisks();
+          };
+          li.appendChild(btn);
+          ul.appendChild(li);
+        });
+        div.appendChild(ul);
+      }
+    }
+    document.getElementById("addRiskForm").onsubmit = function (e) {
+      e.preventDefault();
+      const f = e.target;
+      const when = f.when.value.trim();
+      const desc = f.desc.value.trim();
+      if (!risks[when]) risks[when] = [];
+      risks[when].push(desc);
+      renderRisks();
+      f.reset();
+    };
+    renderRisks();
+
+    // --- tasks ---
+    const tasks = [];
+    function renderTasks() {
+      const tbody = document.getElementById("tasksTable");
+      tbody.innerHTML = "";
+      if (tasks.length === 0) {
+        tbody.innerHTML =
+          '<tr><td colspan="5" style="text-align:center; font-style: italic;">No tasks added yet.</td></tr>';
+        document.getElementById("metricsText").textContent = "No tasks yet";
+        return;
+      }
+      tasks.forEach((t, idx) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${t.task}</td>
+          <td>${t.due}</td>
+          <td class="priority-${t.priority.toLowerCase()}">${t.priority}</td>
+          <td>${t.team}</td>
+          <td><button class="remove-button" onclick="removeTask(${idx})">Remove</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+      document.getElementById(
+        "metricsText"
+      ).textContent = `Total Tasks: ${tasks.length}`;
+    }
+    function removeTask(idx) {
+      tasks.splice(idx, 1);
+      renderTasks();
+    }
+    window.removeTask = removeTask;
+    document.getElementById("addTaskForm").onsubmit = function (e) {
+      e.preventDefault();
+      const f = e.target;
+      tasks.push({
+        task: f.task.value.trim(),
+        due: f.due.value.trim(),
+        priority: f.priority.value,
+        team: f.team.value.trim(),
+      });
+      renderTasks();
+      f.reset();
+    };
+    renderTasks();
+  </script>
 </body>
 </html>
