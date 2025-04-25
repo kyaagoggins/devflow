@@ -1,139 +1,106 @@
-// Load sidebar navigation on page load
+// Load sidebar navigation
 $(document).ready(function () {
   $.get("../navigation/navigation.html", function (html) {
     $("#sidebarContainer").html(html);
-    $(".main-content").css("margin-left", "300px"); // Adjust if needed
+    $(".main-content").css("margin-left", "300px");
   });
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
-  // Add task item button
-  document.getElementById("addTaskBtn").addEventListener("click", function () {
-    addTaskItem();
+  // Load sidebar
+  $.get("../navigation/navigation.html", function (html) {
+    $("#sidebarContainer").html(html);
+    $(".main-content").css("margin-left", "300px");
   });
 
-  // Remove task functionality
-  document.getElementById("taskContainer").addEventListener("click", function (e) {
-    if (e.target.classList.contains("remove-task")) {
-      e.target.closest(".task-item").remove();
+  // Button listeners
+  document.getElementById("addFunctionalBtn").addEventListener("click", addFunctionalRow);
+  document.getElementById("addNonFunctionalBtn").addEventListener("click", addNonFunctionalRow);
+
+  // Handle dropdown changes
+  document.addEventListener("change", function (e) {
+    if (e.target.matches("select[name$='_priority[]']")) {
+      if (e.target.value === "remove") {
+        const row = e.target.closest("tr");
+        if (row) row.remove();
+      } else {
+        applyPriorityStyles(e.target);
+      }
     }
   });
 
-  // Form submission logic
-  document.getElementById("projectForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const form = e.target;
+  // Delay to make sure initial select elements are processed AFTER render
+  setTimeout(updateAllPriorityIndicators, 0);
 
-    const taskInfo = Array.from(form.querySelectorAll('input[name="task_info[]"]')).map(i => i.value);
-    const taskDueDates = Array.from(form.querySelectorAll('input[name="task_due_date[]"]')).map(i => i.value);
-    const taskPriorities = Array.from(form.querySelectorAll('select[name="task_priority[]"]')).map(s => s.value);
-    const taskTeams = Array.from(form.querySelectorAll('select[name="task_team[]"]')).map(s => s.value);
-
-    const tasks = taskInfo.map((info, i) => ({
-      taskInfo: info,
-      dueDate: taskDueDates[i],
-      priority: taskPriorities[i],
-      teamAssigned: taskTeams[i],
-    }));
-
-
-    const data = {
-      title: form.title.value,
-      description: form.description.value,
-      manager: form.manager.value,
-      team,
-      deadlines,
-      risks: form.risks.value.split("\n").map(s => s.trim()).filter(Boolean),
-      tasks,
-      requirements: form.requirements.value.split("\n").map(s => s.trim()).filter(Boolean),
-      priority: form.priority.value,
-      file: form.file.files[0] ? form.file.files[0].name : "No file uploaded",
-    };
-
-    alert("Form submitted! Check the console for data.");
-    console.log("Submitted Data:", data);
-    localStorage.setItem("projectInfo", JSON.stringify(data));
-  });
-
-  // Autofill form if saved data exists
-  const savedData = localStorage.getItem("projectInfo");
-  if (savedData) {
-    const data = JSON.parse(savedData);
-    const form = document.getElementById("projectForm");
-
-
-    document.getElementById("taskContainer").innerHTML = "";
-
-    if (Array.isArray(data.tasks)) {
-      data.tasks.forEach(task => addTaskItem(task));
-    }
+  function updateAllPriorityIndicators() {
+    document.querySelectorAll(".priority-dropdown").forEach(select => {
+      applyPriorityStyles(select);
+    });
   }
 
-  if (!savedData) {
-    addTaskItem();
-  }
+  function applyPriorityStyles(select) {
+    const wrapper = select.closest(".priority-wrapper");
+    if (!wrapper) return;
 
-  // Apply priority color logic
-  function applyPriorityColor(el) {
-    el.classList.remove("priority-high", "priority-medium", "priority-low");
-    switch (el.value) {
+    wrapper.classList.remove("high", "medium", "low", "");
+
+    switch (select.value) {
       case "high":
-        el.classList.add("priority-high");
+        wrapper.classList.add("high");
         break;
       case "medium":
-        el.classList.add("priority-medium");
+        wrapper.classList.add("medium");
         break;
       case "low":
-        el.classList.add("priority-low");
+        wrapper.classList.add("low");
+        break;
+      default:
+        // Do nothing if "Select priority" or "remove" is selected
         break;
     }
   }
 
-  const priorityDropdowns = document.querySelectorAll('select[name="func_priority[]"], select[name="nonfunc_priority[]"], select[name="task_priority[]"]');
-  priorityDropdowns.forEach(select => {
-    applyPriorityColor(select);
-    select.addEventListener("change", () => applyPriorityColor(select));
-  });
-
-  // Add new task row
-  function addTaskItem(task = {}) {
-    const taskContainer = document.getElementById("taskContainer");
-    const newTask = document.createElement("div");
-    newTask.className = "task-item";
-    newTask.innerHTML = `
-      <label>Task Information:
-        <input type="text" name="task_info[]" required value="${escapeHtml(task.taskInfo || "")}">
-      </label>
-      <label>Due Date:
-        <input type="date" name="task_due_date[]" required value="${escapeHtml(task.dueDate || "")}">
-      </label>
-      <label>Priority:
-        <select name="task_priority[]" required>
-          <option value="high" ${task.priority === "high" ? "selected" : ""}>High</option>
-          <option value="medium" ${task.priority === "medium" ? "selected" : ""}>Medium</option>
-          <option value="low" ${task.priority === "low" ? "selected" : ""}>Low</option>
-        </select>
-      </label>
-      <button type="button" class="remove-task">Remove</button>
+  function addFunctionalRow() {
+    const tbody = document.getElementById("functional-req-body");
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td><input type="text" name="func_id[]" required /></td>
+      <td><input type="text" name="func_abbrev[]" required /></td>
+      <td><textarea name="func_expanded[]" required></textarea></td>
+      <td>
+        <div class="priority-wrapper">
+          <select name="func_priority[]" class="priority-dropdown" required>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+            <option value="remove">Remove</option>
+          </select>
+          <span class="priority-indicator"></span>
+        </div>
+      </td>
     `;
-    taskContainer.appendChild(newTask);
-
-    // Attach priority styling logic
-    const prioritySelect = newTask.querySelector('select[name="task_priority[]"]');
-    applyPriorityColor(prioritySelect);
-    prioritySelect.addEventListener("change", () => applyPriorityColor(prioritySelect));
+    tbody.appendChild(row);
   }
 
-  function escapeHtml(text) {
-    return text
-      ? text.replace(/[&<>"']/g, m => ({
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          '"': "&quot;",
-          "'": "&#39;",
-        }[m]))
-      : "";
+  function addNonFunctionalRow() {
+    const tbody = document.getElementById("non-functional-req-body");
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td><input type="text" name="non_func_id[]" required /></td>
+      <td><input type="text" name="non_func_abbrev[]" required /></td>
+      <td><textarea name="non_func_expanded[]" required></textarea></td>
+      <td>
+        <div class="priority-wrapper">
+          <select name="non_func_priority[]" class="priority-dropdown" required>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+            <option value="remove">Remove</option>
+          </select>
+          <span class="priority-indicator"></span>
+        </div>
+      </td>
+    `;
+    tbody.appendChild(row);
   }
 });
