@@ -3,7 +3,6 @@
 **Email:** `test@devflow.com`  
 **Password:** `password123`
 
-## Livia John - Homepage + Login + Contact 
 
 ---
 
@@ -66,3 +65,17 @@ Optimized image versions in different resolutions (e.g. `200w`, `400w`, `850w`, 
 | File               | Description |
 |--------------------|-------------|
 | `index.html`       | Sign in / register page with animated panel switching. Uses `signin.css` for styling and connects to logic for dummy login validation. |
+
+---
+
+### 📁 `requirements/`
+
+Page for tracking and managing project requirements, allowing users to add, remove, and set priorities for functional and non-functional requirements.
+
+| File               | Description |
+|--------------------|-------------|
+| `requirements.css` | Styles for the requirements tracking page, including priority indicators. |
+| `requirements.html`| Structure for the requirements page with tables for functional and non-functional requirements. |
+| `requirements.js`  | Logic for adding, removing, and updating requirements and applying priority styles.|
+
+---
