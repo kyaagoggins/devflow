@@ -80,12 +80,6 @@ Page for tracking and managing project requirements, allowing users to add, remo
 
 ---
 
-
-
-## Kyaa Goggins - Dashboard + Navigation
-
----
-
 ### 📁 `dashboard/`
 
 | File               | Description |
