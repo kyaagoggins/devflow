@@ -79,3 +79,22 @@ Page for tracking and managing project requirements, allowing users to add, remo
 | `requirements.js`  | Logic for adding, removing, and updating requirements and applying priority styles.|
 
 ---
+
+
+
+## Kyaa Goggins - Dashboard + Navigation
+
+---
+
+### 📁 `dashboard/`
+
+| File               | Description |
+|--------------------|-------------|
+| `dashboard.html`       | Dashboard HTML View Site - Features references to css, libraries, and the general view of the dashboard and the containers. |
+| `dashboard.css`       | Dashboard Styling - includes specific styling for all classes used in the dashboard page. |
+| `dashboard.js`       | Dashboard Logic - Includes all functionality and logic for the dashboard page and any handling needed. |
+
+### 📁 `navigation/`
+| File               | Description |
+|--------------------|-------------|
+| `navigation.html`       | Navigation Sidebar HTML - Features the entire sidebar component. All functionality was handled on each individual js page for each portion of the app. |
